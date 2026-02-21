@@ -249,9 +249,24 @@ Install with: `npm install`
 
 ---
 
-## 👩‍💻 Author
+## 👩‍💻 Authors
 
-**R Navya** — Built with ❤️ using Node.js, Express, and vanilla JS.
+<table>
+  <tr>
+    <td align="center">
+      <b>R Navya</b><br/>
+      <sub>Full Stack Developer</sub><br/>
+      <img src="https://img.shields.io/badge/Role-Backend%20%26%20AI%20Logic-6366f1?style=flat-square" />
+    </td>
+    <td align="center" style="padding-left:32px">
+      <b>Venkata Lokesh Derangula</b><br/>
+      <sub>Full Stack Developer</sub><br/>
+      <img src="https://img.shields.io/badge/Role-Frontend%20%26%20UI%2FUX-0ea5e9?style=flat-square" />
+    </td>
+  </tr>
+</table>
+
+> *Built with ❤️ using Node.js, Express, and vanilla JS.*
 
 > *"The best time to plant a tree was 20 years ago. The second best time is now."*
 

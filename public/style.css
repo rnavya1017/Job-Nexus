@@ -2639,3 +2639,103 @@ select option {
     right: 18px;
     z-index: 10;
 }
+
+/* ══════════════════════════════════════════════════════
+   FOOTER AUTHORS
+══════════════════════════════════════════════════════ */
+
+.footer-authors {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin: 24px 0 8px;
+}
+
+.footer-made {
+    font-size: 0.82rem;
+    color: var(--text3);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.author-chips {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.author-chip {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 8px 18px 8px 8px;
+    transition: all 0.25s ease;
+    cursor: default;
+}
+
+.author-chip:hover {
+    border-color: rgba(99, 179, 237, 0.45);
+    background: rgba(99, 179, 237, 0.07);
+    box-shadow: 0 0 20px rgba(99, 179, 237, 0.12);
+    transform: translateY(-2px);
+}
+
+.author-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1rem;
+    color: #fff;
+    flex-shrink: 0;
+    letter-spacing: -0.5px;
+    box-shadow: 0 2px 12px rgba(99, 102, 241, 0.35);
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.author-name {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text1);
+    line-height: 1;
+}
+
+.author-role {
+    font-size: 0.72rem;
+    color: var(--text3);
+    line-height: 1;
+}
+
+.author-sep {
+    font-size: 1rem;
+    color: var(--text3);
+    font-weight: 500;
+    padding: 0 4px;
+}
+
+@media (max-width: 480px) {
+    .author-chips {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .author-sep {
+        display: none;
+    }
+}

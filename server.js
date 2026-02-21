@@ -6,11 +6,22 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const axios = require('axios');
 const multer = require('multer');
-const pdfParse = require('pdf-parse');
+// Use the internal lib path to avoid pdf-parse running a test file on import (crashes on Railway)
+const pdfParse = require('pdf-parse/lib/pdf-parse.js');
 const mammoth = require('mammoth');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// ─── Crash Guard (helps Railway show error in logs instead of silent 502) ──────
+process.on('uncaughtException', (err) => {
+    console.error('💥 Uncaught Exception:', err.message, err.stack);
+    process.exit(1);
+});
+process.on('unhandledRejection', (reason) => {
+    console.error('💥 Unhandled Rejection:', reason);
+    process.exit(1);
+});
 
 // ─── Security & Middleware ────────────────────────────────────────────────────
 app.use(helmet({

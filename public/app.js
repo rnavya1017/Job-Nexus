@@ -200,9 +200,9 @@ async function fetchJobs(page = 1) {
         renderJobs(state.jobs);
         renderPagination(page, Math.ceil(state.jobTotal / 12));
 
-        const info = document.getElementById('resultsInfo');
         document.getElementById('resultsCount').textContent = `${state.jobTotal.toLocaleString()} jobs found`;
-        document.getElementById('resultsCountry').textContent = data.country === 'gb' ? '🇬🇧 UK listings' : '🇮🇳 India listings';
+        document.getElementById('resultsCountry').textContent =
+            data.country === 'in' ? '🇮🇳 India listings' : '🇬🇧 UK listings (India fallback)';
         showEl('resultsInfo');
     } catch (err) {
         document.getElementById('jobsGrid').innerHTML = `
@@ -239,7 +239,7 @@ function renderJobs(jobs) {
       </div>
       <p class="job-desc">${escHtml(job.description)}</p>
       <div class="job-card-footer">
-        <span class="job-salary">${formatSalary(job.salary_min, job.salary_max)}</span>
+        <span class="job-salary">${formatSalary(job.salary_min, job.salary_max, job.currency)}</span>
         <div style="display:flex;gap:8px;align-items:center">
           <span class="job-type-badge">${escHtml(job.contract_type || 'Full Time')}</span>
           <button class="btn-primary small" onclick="event.stopPropagation();openApplyModal(${i})">Apply <i class="fa fa-arrow-right"></i></button>
@@ -921,12 +921,24 @@ function timeAgo(dateStr) {
     return `${Math.floor(diff / 86400)}d ago`;
 }
 
-function formatSalary(min, max) {
+function formatSalary(min, max, currency) {
     if (!min && !max) return 'Salary not disclosed';
-    const fmt = v => v >= 1000 ? `£${(v / 1000).toFixed(0)}k` : `£${v}`;
-    if (min && max) return `${fmt(min)} – ${fmt(max)}`;
-    if (min) return `From ${fmt(min)}`;
-    return `Up to ${fmt(max)}`;
+    if (currency === 'INR') {
+        const fmtINR = v => {
+            if (v >= 10000000) return `₹${(v / 10000000).toFixed(1)} Cr`;
+            if (v >= 100000) return `₹${(v / 100000).toFixed(1)} L`;
+            if (v >= 1000) return `₹${(v / 1000).toFixed(0)}K`;
+            return `₹${v}`;
+        };
+        if (min && max) return `${fmtINR(min)} – ${fmtINR(max)} / yr`;
+        if (min) return `From ${fmtINR(min)} / yr`;
+        return `Up to ${fmtINR(max)} / yr`;
+    }
+    // Default: GBP
+    const fmtGBP = v => v >= 1000 ? `£${(v / 1000).toFixed(0)}k` : `£${v}`;
+    if (min && max) return `${fmtGBP(min)} – ${fmtGBP(max)}`;
+    if (min) return `From ${fmtGBP(min)}`;
+    return `Up to ${fmtGBP(max)}`;
 }
 
 function copyText(id) {

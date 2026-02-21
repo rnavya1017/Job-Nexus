@@ -50,7 +50,7 @@ const upload = multer({
 const ADZUNA_APP_ID = process.env.ADZUNA_APP_ID || '8cc838d8';
 const ADZUNA_API_KEY = process.env.ADZUNA_API_KEY || 'e3635d9160d3b2958987367dff8b6aca';
 
-// ─── API: Fetch Jobs ──────────────────────────────────────────────────────────
+// ─── API: Fetch Jobs (India-first, GB fallback) ───────────────────────────────
 app.get('/api/jobs', async (req, res) => {
     try {
         const {
@@ -63,25 +63,42 @@ app.get('/api/jobs', async (req, res) => {
             sort_by = 'relevance'
         } = req.query;
 
-        // Adzuna supports: gb, us, au, at, br, ca, de, fr, in, it, nl, nz, pl, ru, sg, za
-        // Free tier works best with gb/us. We try gb by default.
-        const country = 'gb';
-        const url = `https://api.adzuna.com/v1/api/jobs/${country}/search/${parseInt(page)}`;
-
-        const params = {
-            app_id: ADZUNA_APP_ID,
-            app_key: ADZUNA_API_KEY,
-            results_per_page: parseInt(results_per_page),
-            what: what,
-            where: where === 'india' ? '' : where,  // gb endpoint doesn't filter by india
-            sort_by,
+        // Helper: fetch from a given Adzuna country endpoint
+        const fetchFromAdzuna = async (country, locationOverride) => {
+            const url = `https://api.adzuna.com/v1/api/jobs/${country}/search/${parseInt(page)}`;
+            const params = {
+                app_id: ADZUNA_APP_ID,
+                app_key: ADZUNA_API_KEY,
+                results_per_page: parseInt(results_per_page),
+                what,
+                sort_by,
+            };
+            // Only pass 'where' when it has meaningful content
+            if (locationOverride) params.where = locationOverride;
+            if (salary_min) params.salary_min = salary_min;
+            if (salary_max) params.salary_max = salary_max;
+            const r = await axios.get(url, { params, timeout: 12000 });
+            return r.data;
         };
-        if (salary_min) params.salary_min = salary_min;
-        if (salary_max) params.salary_max = salary_max;
 
-        const response = await axios.get(url, { params, timeout: 12000 });
-        const jobs = response.data.results || [];
-        const total = response.data.count || 0;
+        // ── Try India endpoint first ──────────────────────────
+        let data = null;
+        let usedCountry = 'in';
+        try {
+            data = await fetchFromAdzuna('in', '');  // 'in' = India
+            // If India returns 0 results, fall back to GB with location filter
+            if (!data.results || data.results.length === 0) {
+                data = await fetchFromAdzuna('gb', where === 'india' ? '' : where);
+                usedCountry = 'gb';
+            }
+        } catch (_indiaErr) {
+            // India endpoint failed — fall back to GB
+            data = await fetchFromAdzuna('gb', where === 'india' ? '' : where);
+            usedCountry = 'gb';
+        }
+
+        const jobs = data.results || [];
+        const total = data.count || 0;
 
         const formatted = jobs.map(job => ({
             id: job.id,
@@ -91,6 +108,7 @@ app.get('/api/jobs', async (req, res) => {
             description: (job.description || '').substring(0, 300) + '...',
             salary_min: job.salary_min,
             salary_max: job.salary_max,
+            currency: usedCountry === 'in' ? 'INR' : 'GBP',
             created: job.created,
             redirect_url: job.redirect_url,
             category: job.category?.label || 'IT Jobs',
@@ -98,11 +116,12 @@ app.get('/api/jobs', async (req, res) => {
             logo: `https://ui-avatars.com/api/?name=${encodeURIComponent((job.company?.display_name || 'J').charAt(0))}&background=1e3a5f&color=60a5fa&size=64&bold=true`
         }));
 
-        return res.json({ jobs: formatted, total, page: parseInt(page), country });
+        return res.json({ jobs: formatted, total, page: parseInt(page), country: usedCountry });
     } catch (err) {
         console.error('Job fetch error:', err.message);
         res.status(500).json({ error: 'Failed to fetch jobs', message: err.message });
     }
+
 });
 
 // ─── API: AI Fake Job Detection ───────────────────────────────────────────────

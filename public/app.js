@@ -68,7 +68,18 @@ function toggleMobileMenu() {
 // ═══════════════════════════════════════════
 //   NAVIGATION
 // ═══════════════════════════════════════════
+// Pages that require login
+const PROTECTED_PAGES = ['jobs', 'ats', 'resume', 'linkedin', 'courses'];
+
 function navigate(page) {
+    // ── Auth Guard ────────────────────────────────────────
+    if (PROTECTED_PAGES.includes(page) && !state.user) {
+        showToast('🔒 Please sign in or create an account to access this feature', 'warning');
+        openAuthModal();
+        switchAuthTab('signup'); // nudge new users to sign up
+        return;
+    }
+
     // Hide all pages
     document.querySelectorAll('.page').forEach(p => {
         p.classList.remove('active');
@@ -150,8 +161,8 @@ function handleSignup() {
     localStorage.setItem('jn_user', JSON.stringify(newUser));
     updateNavForUser();
     closeAuthModal();
-    showToast(`Welcome to JobNexus, ${firstName}! 🚀`, 'success');
-    navigate('resume');
+    showToast(`Welcome to JobNexus, ${firstName}! 🚀 Start exploring now.`, 'success');
+    navigate('jobs');
 }
 
 function loadUser() {
@@ -165,16 +176,20 @@ function updateNavForUser() {
     if (state.user) {
         txt.textContent = state.user.firstName || 'Me';
         btn.onclick = logoutUser;
-        btn.title = 'Click to logout';
+        btn.title = `Signed in as ${state.user.firstName}. Click to logout.`;
     }
 }
 function logoutUser() {
     state.user = null;
     localStorage.removeItem('jn_user');
     document.getElementById('navAuthText').textContent = 'Sign In';
-    document.getElementById('navAuthBtn').onclick = openAuthModal;
-    showToast('Logged out successfully', 'success');
+    const btn = document.getElementById('navAuthBtn');
+    btn.onclick = openAuthModal;
+    btn.title = '';
+    showToast('Logged out successfully. See you again! 👋', 'success');
+    navigate('home');
 }
+
 
 // ═══════════════════════════════════════════
 //   JOBS

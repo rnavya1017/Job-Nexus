@@ -255,13 +255,18 @@ Install with: `npm install`
   <tr>
     <td align="center">
       <b>R Navya</b><br/>
-      <sub>Full Stack Developer</sub><br/>
-      <img src="https://img.shields.io/badge/Role-Backend%20%26%20AI%20Logic-6366f1?style=flat-square" />
+      <sub>Frontend Developer</sub><br/>
+      <img src="https://img.shields.io/badge/Role-Frontend%20Developer-6366f1?style=flat-square" />
     </td>
     <td align="center" style="padding-left:32px">
       <b>Venkata Lokesh Derangula</b><br/>
       <sub>Full Stack Developer</sub><br/>
-      <img src="https://img.shields.io/badge/Role-Frontend%20%26%20UI%2FUX-0ea5e9?style=flat-square" />
+      <img src="https://img.shields.io/badge/Role-Backend%20Developer-0ea5e9?style=flat-square" />
+    </td>
+    <td align="center" style="padding-left:32px">
+      <b>Nireesha Hemadri</b><br/>
+      <sub>Deployment Engineer</sub><br/>
+      <img src="https://img.shields.io/badge/Role-Deployment%20%26%20DevOps-22c55e?style=flat-square" />
     </td>
   </tr>
 </table>

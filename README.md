@@ -254,19 +254,19 @@ Install with: `npm install`
 <table>
   <tr>
     <td align="center">
-      <b>R Navya</b><br/>
-      <sub>Frontend Developer</sub><br/>
-      <img src="https://img.shields.io/badge/Role-Frontend%20Developer-6366f1?style=flat-square" />
+      <b>Venkata Lokesh Derangula</b><br/>
+      <sub>Frontend and Backend</sub><br/>
+      <img src="https://img.shields.io/badge/Role-Frontend%20%26%20Backend-6366f1?style=flat-square" />
     </td>
     <td align="center" style="padding-left:32px">
-      <b>Venkata Lokesh Derangula</b><br/>
-      <sub>Full Stack Developer</sub><br/>
-      <img src="https://img.shields.io/badge/Role-Backend%20Developer-0ea5e9?style=flat-square" />
+      <b>E Siva Sankara</b><br/>
+      <sub>Frontend Developer</sub><br/>
+      <img src="https://img.shields.io/badge/Role-Frontend%20Developer-0ea5e9?style=flat-square" />
     </td>
     <td align="center" style="padding-left:32px">
       <b>Nireesha Hemadri</b><br/>
-      <sub>Deployment Engineer</sub><br/>
-      <img src="https://img.shields.io/badge/Role-Deployment%20%26%20DevOps-22c55e?style=flat-square" />
+      <sub>Backend Developer</sub><br/>
+      <img src="https://img.shields.io/badge/Role-Backend%20Developer-22c55e?style=flat-square" />
     </td>
   </tr>
 </table>

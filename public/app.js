@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════
-   JobNexus — Main Application JavaScript
+   CareerConnect — Main Application JavaScript
    Full-stack frontend logic
 ══════════════════════════════════════════ */
 
@@ -129,46 +129,93 @@ document.getElementById('authModal')?.addEventListener('click', function (e) {
     if (e.target === this) closeAuthModal();
 });
 
-function handleLogin() {
+async function handleLogin() {
     const email = document.getElementById('loginEmail')?.value?.trim();
     const pass = document.getElementById('loginPassword')?.value;
     if (!email || !pass) return showToast('Please fill in all fields', 'error');
-    // Simulate login (localStorage)
-    const users = JSON.parse(localStorage.getItem('jn_users') || '[]');
-    const found = users.find(u => u.email === email && u.password === pass);
-    if (!found) return showToast('Invalid credentials. Please sign up first.', 'error');
-    state.user = found;
-    localStorage.setItem('jn_user', JSON.stringify(found));
-    updateNavForUser();
-    closeAuthModal();
-    showToast(`Welcome back, ${found.firstName}! 👋`, 'success');
+
+    try {
+        const res = await fetch(`${API}/api/auth/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password: pass })
+        });
+        const data = await res.json();
+        if (!res.ok) return showToast(data.error || 'Login failed', 'error');
+
+        // Store token and user
+        localStorage.setItem('jn_token', data.token);
+        localStorage.setItem('jn_user', JSON.stringify(data.user));
+        state.user = data.user;
+
+        updateNavForUser();
+        closeAuthModal();
+        showToast(`Welcome back, ${data.user.firstName}! 👋`, 'success');
+    } catch (err) {
+        showToast('Connection error. Please try again.', 'error');
+    }
 }
 
-function handleSignup() {
+async function handleSignup() {
     const firstName = document.getElementById('signupFirst')?.value?.trim();
     const lastName = document.getElementById('signupLast')?.value?.trim();
     const email = document.getElementById('signupEmail')?.value?.trim();
     const password = document.getElementById('signupPassword')?.value;
-    const role = document.getElementById('signupRole')?.value?.trim();
+    const targetRole = document.getElementById('signupRole')?.value?.trim();
     if (!firstName || !email || !password) return showToast('Please fill required fields', 'error');
     if (password.length < 8) return showToast('Password must be at least 8 characters', 'error');
-    const users = JSON.parse(localStorage.getItem('jn_users') || '[]');
-    if (users.find(u => u.email === email)) return showToast('Email already registered. Please sign in.', 'error');
-    const newUser = { firstName, lastName, email, password, role, joined: new Date().toISOString() };
-    users.push(newUser);
-    localStorage.setItem('jn_users', JSON.stringify(users));
-    state.user = newUser;
-    localStorage.setItem('jn_user', JSON.stringify(newUser));
-    updateNavForUser();
-    closeAuthModal();
-    showToast(`Welcome to JobNexus, ${firstName}! 🚀 Start exploring now.`, 'success');
-    navigate('jobs');
+
+    try {
+        const res = await fetch(`${API}/api/auth/signup`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ firstName, lastName, email, password, targetRole })
+        });
+        const data = await res.json();
+        if (!res.ok) return showToast(data.error || 'Signup failed', 'error');
+
+        // Store token and user
+        localStorage.setItem('jn_token', data.token);
+        localStorage.setItem('jn_user', JSON.stringify(data.user));
+        state.user = data.user;
+
+        updateNavForUser();
+        closeAuthModal();
+        showToast(`Welcome to CareerConnect, ${data.user.firstName}! 🚀 Start exploring now.`, 'success');
+        navigate('jobs');
+    } catch (err) {
+        showToast('Connection error. Please try again.', 'error');
+    }
 }
 
-function loadUser() {
-    const saved = localStorage.getItem('jn_user');
-    if (saved) { state.user = JSON.parse(saved); updateNavForUser(); }
+async function loadUser() {
+    const token = localStorage.getItem('jn_token');
+    const savedUser = localStorage.getItem('jn_user');
+    if (token && savedUser) {
+        state.user = JSON.parse(savedUser);
+        updateNavForUser();
+
+        // Verify token is still valid in background
+        try {
+            const res = await fetch(`${API}/api/auth/me`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (res.ok) {
+                const data = await res.json();
+                state.user = data.user;
+                localStorage.setItem('jn_user', JSON.stringify(data.user));
+                updateNavForUser();
+            } else {
+                // Token expired or invalid — log out
+                logoutUser(true);
+            }
+        } catch (err) {
+            // Network error — keep cached user, don't force logout
+            console.warn('Could not verify token, using cached user');
+        }
+    }
 }
+
 function updateNavForUser() {
     const btn = document.getElementById('navAuthBtn');
     const txt = document.getElementById('navAuthText');
@@ -176,17 +223,35 @@ function updateNavForUser() {
     if (state.user) {
         txt.textContent = state.user.firstName || 'Me';
         btn.onclick = logoutUser;
-        btn.title = `Signed in as ${state.user.firstName}. Click to logout.`;
+        btn.title = `Signed in as ${state.user.firstName} (${state.user.email}). Click to logout.`;
+
+        // Show admin link if user is admin
+        const existingAdminLink = document.getElementById('navAdminLink');
+        if (state.user.role === 'admin' && !existingAdminLink) {
+            const li = document.createElement('li');
+            li.id = 'navAdminLink';
+            li.innerHTML = `<a href="/admin" class="nav-link" style="color:#f59e0b"><i class="fa fa-shield-alt"></i> Admin</a>`;
+            document.getElementById('navLinks')?.appendChild(li);
+        }
+        if (state.user.role !== 'admin' && existingAdminLink) {
+            existingAdminLink.remove();
+        }
     }
 }
-function logoutUser() {
+
+function logoutUser(silent = false) {
     state.user = null;
+    localStorage.removeItem('jn_token');
     localStorage.removeItem('jn_user');
     document.getElementById('navAuthText').textContent = 'Sign In';
     const btn = document.getElementById('navAuthBtn');
     btn.onclick = openAuthModal;
     btn.title = '';
-    showToast('Logged out successfully. See you again! 👋', 'success');
+
+    // Remove admin link
+    document.getElementById('navAdminLink')?.remove();
+
+    if (!silent) showToast('Logged out successfully. See you again! 👋', 'success');
     navigate('home');
 }
 

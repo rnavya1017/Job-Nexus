@@ -10,6 +10,12 @@ const multer = require('multer');
 const pdfParse = require('pdf-parse/lib/pdf-parse.js');
 const mammoth = require('mammoth');
 
+// ─── Database & Auth ──────────────────────────────────────────────────────────
+const connectDB = require('./db');
+const seedAdmin = require('./seedAdmin');
+const authRoutes = require('./routes/auth');
+const adminRoutes = require('./routes/admin');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -544,7 +550,7 @@ function generateLatex(d) {
     ).join('\n');
 
     return `%------------------------
-% JobNexus Resume Template
+% CareerConnect Resume Template
 % Generated on ${new Date().toLocaleDateString()}
 %------------------------
 
@@ -756,15 +762,31 @@ function getCoursesData() {
     };
 }
 
+// ─── Auth & Admin API Routes ──────────────────────────────────────────────────
+app.use('/api/auth', authRoutes);
+app.use('/api/admin', adminRoutes);
+
+// ─── Admin Panel Page ─────────────────────────────────────────────────────────
+app.get('/admin', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+});
+
 // ─── Catch-all: serve index.html ──────────────────────────────────────────────
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// ─── Start Server ─────────────────────────────────────────────────────────────
-app.listen(PORT, '0.0.0.0', () => {
-    console.log(`✅ JobNexus running on http://localhost:${PORT}`);
-    console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
-});
+// ─── Start Server (with DB connection) ────────────────────────────────────────
+const startServer = async () => {
+    await connectDB();
+    await seedAdmin();
+
+    app.listen(PORT, '0.0.0.0', () => {
+        console.log(`✅ CareerConnect running on http://localhost:${PORT}`);
+        console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
+        console.log(`🔐 Admin panel: http://localhost:${PORT}/admin`);
+    });
+};
+startServer();
 
 module.exports = app;

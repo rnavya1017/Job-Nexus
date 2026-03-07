@@ -3,8 +3,15 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const { protect, adminOnly } = require('../middleware/auth');
+const { isDBConnected } = require('../db');
 
-// All admin routes require authentication + admin role
+// DB guard + auth + admin role
+router.use((req, res, next) => {
+    if (!isDBConnected()) {
+        return res.status(503).json({ error: 'Database not available. Please try again later.' });
+    }
+    next();
+});
 router.use(protect, adminOnly);
 
 // ─── GET /api/admin/users — list all users ────────────────────────────────────

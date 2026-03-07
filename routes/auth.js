@@ -3,7 +3,15 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const { generateToken, protect } = require('../middleware/auth');
+const { isDBConnected } = require('../db');
 
+// DB guard — return helpful error if database is not connected
+router.use((req, res, next) => {
+    if (!isDBConnected()) {
+        return res.status(503).json({ error: 'Database not available. Please try again later.' });
+    }
+    next();
+});
 // ─── POST /api/auth/signup ────────────────────────────────────────────────────
 router.post('/signup', async (req, res) => {
     try {

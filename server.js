@@ -11,7 +11,7 @@ const pdfParse = require('pdf-parse/lib/pdf-parse.js');
 const mammoth = require('mammoth');
 
 // ─── Database & Auth ──────────────────────────────────────────────────────────
-const connectDB = require('./db');
+const { connectDB, isDBConnected } = require('./db');
 const seedAdmin = require('./seedAdmin');
 const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
@@ -778,13 +778,15 @@ app.get('*', (req, res) => {
 
 // ─── Start Server (with DB connection) ────────────────────────────────────────
 const startServer = async () => {
-    await connectDB();
-    await seedAdmin();
+    const dbOk = await connectDB();
+    if (dbOk) await seedAdmin();
+    else console.warn('⚠️  Skipping admin seed — no database connection.');
 
     app.listen(PORT, '0.0.0.0', () => {
         console.log(`✅ CareerConnect running on http://localhost:${PORT}`);
         console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
         console.log(`🔐 Admin panel: http://localhost:${PORT}/admin`);
+        if (!dbOk) console.warn('⚠️  Database not connected — set MONGODB_URI in environment variables.');
     });
 };
 startServer();

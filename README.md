@@ -1,14 +1,15 @@
-# 🚀 JobNexus — AI-Powered Career Hub
+# 🚀 CareerConnect — AI-Powered Career Hub
 
 <p align="center">
   <img src="https://img.shields.io/badge/Node.js-v18+-339933?style=for-the-badge&logo=node.js&logoColor=white" />
   <img src="https://img.shields.io/badge/Express.js-4.x-000000?style=for-the-badge&logo=express&logoColor=white" />
+  <img src="https://img.shields.io/badge/MongoDB-Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white" />
+  <img src="https://img.shields.io/badge/Gemini_AI-Powered-4285F4?style=for-the-badge&logo=google&logoColor=white" />
   <img src="https://img.shields.io/badge/Adzuna_API-India_First-FF6B35?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/LinkedIn-Apply-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
   <img src="https://img.shields.io/badge/Railway-Deploy_Ready-7B2FBE?style=for-the-badge&logo=railway&logoColor=white" />
 </p>
 
-> **JobNexus** is a production-ready, full-stack AI-powered job portal built for Indian students and job seekers. It offers real-time India job listings, AI-powered fake job detection, ATS resume screening, a LaTeX resume builder, LinkedIn profile optimisation, and curated upskilling courses — all in one premium dark-themed platform.
+> **CareerConnect** is a production-ready, full-stack AI-powered career platform built for Indian students and job seekers. It features real-time job listings, AI-powered fake job detection, ATS resume analysis, a LaTeX resume builder, LinkedIn profile optimization, an interactive quiz system for upskilling courses, secure JWT-based user authentication, and a protected admin dashboard — all wrapped in a bold Neo-Brutalist dark theme.
 
 ---
 
@@ -19,12 +20,13 @@
 | 🔍 **AI Job Search** | Live India jobs via Adzuna API (fallback to GB) · Filter by role, location, salary |
 | 🤖 **Fake Job Detection** | 8-signal AI heuristic fraud check on every job click — shows trust score + signal breakdown |
 | 💼 **LinkedIn Apply** | One-click redirect to LinkedIn Easy Apply for the job |
-| 📄 **ATS Resume Screener** | Upload PDF/DOCX, get keyword match score, gap analysis & recommendations |
+| 📄 **ATS Resume Screener** | Upload PDF/DOCX/TXT, get keyword match score, gap analysis & recommendations |
 | 📝 **LaTeX Resume Builder** | Build a professional resume, export LaTeX, paste into Overleaf → PDF |
-| 🔗 **LinkedIn Optimizer** | AI-generated headline, about section, and recruiter-ready tips |
-| 🎓 **Curated Courses** | 6 domains · Hand-picked YouTube channels · Free forever |
+| 🔗 **LinkedIn Optimizer** | AI-generated headline, about section, and sample recruiter-ready tips |
+| 🎓 **Courses + Interactive Quiz** | 6 domains · Hand-picked YouTube channels · 15–20 MCQ quiz per course |
 | 💰 **Rupee Salaries** | All India jobs show salary in ₹ (Lakh/Crore notation) |
-| ✨ **Premium UI** | Glassmorphism · Aceternity-style animated gradient hero · Mouse-proximity card glow |
+| 🔐 **JWT Authentication** | Secure signup/login · Passwords hashed with bcrypt · Protected routes |
+| 🛡️ **Admin Dashboard** | Separate admin login · User management (promote, deactivate, delete) · Stats overview |
 
 ---
 
@@ -32,7 +34,11 @@
 
 ### Backend
 - **Node.js + Express.js** — REST API server
+- **MongoDB + Mongoose** — User accounts & authentication persistence
+- **bcryptjs** — Password hashing
+- **jsonwebtoken** — JWT token generation & verification
 - **Adzuna API** — Real-time job listings (India `in` endpoint, GB fallback)
+- **Google Gemini API** — AI-generated resume analysis, LinkedIn content, LaTeX building
 - **pdf-parse + mammoth** — PDF and DOCX resume text extraction
 - **helmet** — Security headers
 - **express-rate-limit** — API rate limiting (200 req / 15 min)
@@ -43,24 +49,36 @@
 - **Vanilla HTML + CSS + JavaScript** — zero framework overhead
 - **Google Fonts** — Inter + Space Grotesk
 - **Font Awesome 6** — Icons
-- **Aceternity UI effects** (pure CSS/JS):
-  - `BackgroundGradientAnimation` — spinning conic-gradient hero background
-  - `GlowingEffect` — mouse-proximity radial border glow on all cards
+- **Neo-Brutalist dark theme** (Cruv-inspired):
+  - Pure black base with lime green, deep blue, and vibrant orange accents
+  - Sharp corners, high-contrast borders, no soft shadows
 
 ---
 
 ## 📁 Project Structure
 
 ```
-JobPortal/
-├── server.js            # Express server, all API routes
+Career-connect/
+├── server.js                # Express server, all API routes
+├── db.js                    # MongoDB connection
+├── seedAdmin.js             # Auto-seeds the master admin on startup
 ├── package.json
-├── .env                 # API keys (not committed)
+├── .env                     # API keys (not committed)
 ├── .gitignore
+├── data/
+│   └── courses.json         # Curated courses + 15–20 MCQ quiz questions per domain
+├── models/
+│   └── User.js              # Mongoose user model (bcrypt, role, toSafeObject)
+├── middleware/
+│   └── auth.js              # protect() + adminOnly() JWT middleware
+├── routes/
+│   ├── auth.js              # /signup, /login, /admin-login, /me
+│   └── admin.js             # /users, /stats, /users/:id (CRUD)
 └── public/
-    ├── index.html       # Single-page application layout
-    ├── style.css        # Premium dark theme + animations
-    └── app.js           # All frontend logic (SPA router, API calls, UI)
+    ├── index.html           # Main single-page application
+    ├── style.css            # Cruv Neo-Brutalist dark theme
+    ├── app.js               # All frontend logic (SPA router, API calls, UI)
+    └── admin.html           # Admin dashboard (protected, separate login)
 ```
 
 ---
@@ -70,12 +88,14 @@ JobPortal/
 ### 1. Prerequisites
 - Node.js v18 or higher
 - npm v9 or higher
+- MongoDB (local or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas))
 - Adzuna API key (free at [developer.adzuna.com](https://developer.adzuna.com/))
+- Google Gemini API key (free at [aistudio.google.com](https://aistudio.google.com/))
 
 ### 2. Clone & Install
 ```bash
-git clone https://github.com/your-username/jobnexus.git
-cd jobnexus
+git clone https://github.com/lokesh-derangula/Career-connect.git
+cd Career-connect
 npm install
 ```
 
@@ -84,12 +104,15 @@ Create a `.env` file in the project root:
 
 ```env
 PORT=3000
+MONGODB_URI=mongodb://127.0.0.1:27017/careerconnect
 ADZUNA_APP_ID=your_adzuna_app_id
 ADZUNA_API_KEY=your_adzuna_api_key
+GEMINI_API_KEY=your_gemini_api_key
+JWT_SECRET=your_secure_random_secret
 NODE_ENV=production
 ```
 
-> 🔑 Get your free API key at [developer.adzuna.com](https://developer.adzuna.com/)
+> 🔑 The master admin account (`admin@career`) is **automatically created** on first server startup.
 
 ### 4. Run the Server
 ```bash
@@ -97,31 +120,61 @@ node server.js
 ```
 
 Visit **http://localhost:3000** in your browser.
+Visit **http://localhost:3000/admin.html** for the Admin Dashboard.
+
+---
+
+## 🔒 Authentication & Admin System
+
+### User Login
+- Regular users sign up and log in via the main application at `/`.
+- Passwords are hashed with **bcryptjs** and stored in MongoDB.
+- Sessions are managed with **JWT tokens** stored in `localStorage`.
+
+### Admin Login (Separate & Protected)
+- Admins log in exclusively at `/admin.html` via a dedicated `/api/auth/admin-login` endpoint.
+- Regular user accounts are **hard-rejected** at the backend — the role check happens server-side, not on the client.
+- The admin panel is completely inaccessible to non-admin users.
+
+### Master Admin
+| Field | Value |
+|---|---|
+| **Email** | `admin@career` |
+| **Password** | `Admin@careerconnect.` |
+| **Privilege** | Can promote/demote users, delete accounts, view all stats |
+
+> ⚠️ Only the master admin (`admin@career`) can grant the `admin` role to other users. Sub-admins cannot mint new admins.
 
 ---
 
 ## 🌐 API Endpoints
 
+### Auth
+| Method | Endpoint | Description |
+|---|---|---|
+| `POST` | `/api/auth/signup` | Register a new user |
+| `POST` | `/api/auth/login` | Login (regular user only) |
+| `POST` | `/api/auth/admin-login` | Login (admin role required) |
+| `GET` | `/api/auth/me` | Get current user profile (JWT required) |
+
+### Admin (JWT + admin role required)
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/api/admin/stats` | Dashboard stats (total users, admins, recent signups) |
+| `GET` | `/api/admin/users` | Paginated user list with search & role filter |
+| `GET` | `/api/admin/users/:id` | Get single user details |
+| `PUT` | `/api/admin/users/:id` | Update user role or active status |
+| `DELETE` | `/api/admin/users/:id` | Permanently delete a user |
+
+### Core Features
 | Method | Endpoint | Description |
 |---|---|---|
 | `GET` | `/api/jobs` | Fetch India jobs (Adzuna `in` endpoint, GB fallback) |
 | `POST` | `/api/jobs/verify` | AI fake job detection — returns trust score + signals |
 | `POST` | `/api/ats/screen` | ATS resume analysis — accepts PDF, DOCX, TXT or text |
 | `POST` | `/api/resume/latex` | Generate LaTeX resume code from form data |
-| `POST` | `/api/linkedin/tips` | Generate LinkedIn headline + about + tips |
-| `GET` | `/api/courses` | Get curated YouTube courses by domain |
-
-### Query Parameters for `/api/jobs`
-
-| Param | Default | Description |
-|---|---|---|
-| `what` | `software developer` | Job title / keywords |
-| `where` | `india` | Location (city or leave blank for all India) |
-| `page` | `1` | Page number |
-| `results_per_page` | `12` | Results per page |
-| `sort_by` | `relevance` | `relevance`, `date`, or `salary` |
-| `salary_min` | — | Minimum salary filter |
-| `salary_max` | — | Maximum salary filter |
+| `POST` | `/api/linkedin/tips` | AI-generate LinkedIn headline + about section + tips |
+| `GET` | `/api/courses` | Get curated courses + MCQ quiz questions by domain |
 
 ---
 
@@ -133,54 +186,20 @@ When a user clicks any job card, the backend runs **8 fraud-detection signals**:
 |---|---|---|
 | 1 | 🚨 Suspicious Keywords | "MLM", "pay to work", "guaranteed salary", "wire transfer" etc. |
 | 2 | 💰 Salary Sanity | Unrealistically high salary (>₹5 Cr / >£500k) is flagged |
-| 3 | 🏢 Company Credibility | 40+ known employers (TCS, Infosys, Google, HSBC, NHS…) get trust boost |
+| 3 | 🏢 Company Credibility | 40+ known employers (TCS, Infosys, Google…) get trust boost |
 | 4 | 📄 Description Quality | Extremely short/vague description = red flag |
 | 5 | 🔗 URL Safety | Shortened URLs (bit.ly, tinyurl) = phishing risk |
 | 6 | 📅 Posting Recency | Fresh postings (≤30 days) = more credible; >180 days = warn |
 | 7 | 📋 Job Details | Contract type + location specified = credibility boost |
 | 8 | 🎭 Title Vagueness | "job opportunity", "earn from home" etc. = red flag |
 
-**Verdicts:**
-- ✅ **Appears Legitimate** (trust ≥ 60%)
-- ⚠️ **Suspicious — Verify Before Applying** (risk score 20–39)
-- 🚨 **Likely Fraudulent** (risk score ≥ 40)
-- ℹ️ **Unverified — Proceed with Caution** (else)
+**Verdicts:** ✅ Appears Legitimate (≥60%) · ⚠️ Suspicious (risk 20–39) · 🚨 Likely Fraudulent (risk ≥40)
 
 ---
 
-## 💰 Salary Display (India)
+## 🎓 Courses & Quiz System
 
-Salaries from the India Adzuna endpoint are shown in **₹ Indian Rupee** format:
-
-| Raw Value | Displayed As |
-|---|---|
-| ₹5,00,000 | `₹5.0 L / yr` |
-| ₹12,00,000 | `₹12.0 L / yr` |
-| ₹1,00,00,000 | `₹1.0 Cr / yr` |
-| ₹50,000 | `₹50K / yr` |
-
-> If the India endpoint returns no results, the system falls back to UK (GB) listings and displays salaries in **£ GBP** with a `🇬🇧 UK listings (India fallback)` badge.
-
----
-
-## 📊 ATS Scoring Algorithm
-
-The ATS scorer evaluates 6 categories:
-
-| Category | Max Points | How it's Scored |
-|---|---|---|
-| Resume Sections | 20 | education, experience, skills, projects, certifications |
-| Technical Skills | 25 | Matches against 40+ tech keywords |
-| JD Keyword Match | 25 | Keywords from the pasted job description |
-| Contact Info | 10 | Email, phone, LinkedIn, GitHub |
-| Action Verbs | 10 | developed, built, led, optimised… |
-| Format & Length | 10 | 150–900 words, measurable achievements |
-
-**Score bands:** A (≥80) · B (≥65) · C (≥50) · D (<50)
-
----
-
-## 🎓 Courses (6 Domains)
+6 domains with curated YouTube channels and an **interactive MCQ quiz** (15–20 questions each):
 
 | Domain | Sample Channels |
 |---|---|
@@ -191,29 +210,51 @@ The ATS scorer evaluates 6 categories:
 | DSA & Interview Prep | Abdul Bari, NeetCode, Gaurav Sen, Errichto |
 | Mobile Development | The Net Ninja, Academind, Philipp Lackner |
 
+**Quiz rules:**
+- Each course has its own quiz window with 15–20 domain-specific MCQs.
+- After each answer, instant feedback is shown (correct/incorrect).
+- The **next question is locked** until the current question is answered correctly.
+
+---
+
+## 📊 ATS Scoring Algorithm
+
+Evaluates 6 categories:
+
+| Category | Max Points |
+|---|---|
+| Resume Sections | 20 |
+| Technical Skills | 25 |
+| JD Keyword Match | 25 |
+| Contact Info | 10 |
+| Action Verbs | 10 |
+| Format & Length | 10 |
+
+**Score bands:** A (≥80) · B (≥65) · C (≥50) · D (<50)
+
 ---
 
 ## 🚀 Deploy to Railway
 
-1. Push your code to GitHub
+1. Push code to GitHub
 2. Go to [railway.app](https://railway.app) → **New Project → Deploy from GitHub**
-3. Select your repository
+3. Select this repository
 4. Add environment variables in Railway dashboard:
-   - `ADZUNA_APP_ID`
-   - `ADZUNA_API_KEY`
-   - `NODE_ENV=production`
+   - `MONGODB_URI`, `ADZUNA_APP_ID`, `ADZUNA_API_KEY`, `GEMINI_API_KEY`, `JWT_SECRET`, `NODE_ENV=production`
 5. Railway auto-detects Node.js and runs `node server.js`
-6. Your app is live on a `*.railway.app` URL! 🎉
+6. Your app is live! 🎉
 
 ---
 
 ## 🔒 Security
 
-- **Helmet.js** — Sets secure HTTP headers (XSS, clickjacking protection)
+- **Helmet.js** — Secure HTTP headers (XSS, clickjacking protection)
 - **Rate Limiting** — 200 requests per 15 minutes per IP
-- **CORS** — Enabled for all origins (configure as needed for production)
+- **bcryptjs** — Passwords are never stored in plaintext
+- **JWT** — Stateless, expiring tokens for session management
+- **Role-based access control** — `protect` + `adminOnly` middleware on all admin routes
+- **Master Admin lock** — Only `admin@career` can promote users to admin
 - **File Validation** — Only PDF, DOCX, TXT accepted; max 5 MB
-- **No Credentials Stored** — Auth is localStorage-only (demo mode)
 
 ---
 
@@ -222,6 +263,9 @@ The ATS scorer evaluates 6 categories:
 ```json
 {
   "express": "^4.x",
+  "mongoose": "^8.x",
+  "bcryptjs": "^2.x",
+  "jsonwebtoken": "^9.x",
   "cors": "^2.x",
   "helmet": "^7.x",
   "express-rate-limit": "^7.x",
@@ -237,14 +281,13 @@ Install with: `npm install`
 
 ---
 
-## 🛣️ Roadmap / Future Enhancements
+## 🛣️ Roadmap
 
-- [ ] Real backend authentication (JWT + PostgreSQL/MongoDB)
+- [ ] Resume PDF download directly (without Overleaf)
 - [ ] Email notifications for saved jobs
 - [ ] AI-powered job recommendation engine (based on resume skills)
 - [ ] GitHub profile integration & analysis
 - [ ] Mobile app (React Native)
-- [ ] Resume PDF download directly (without Overleaf)
 - [ ] Company reviews & interview experiences
 
 ---
@@ -271,9 +314,7 @@ Install with: `npm install`
   </tr>
 </table>
 
-> *Built with ❤️ using Node.js, Express, and vanilla JS.*
-
-> *"The best time to plant a tree was 20 years ago. The second best time is now."*
+> *Built with ❤️ using Node.js, Express, MongoDB, and vanilla JS.*
 
 ---
 

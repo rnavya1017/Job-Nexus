@@ -969,18 +969,13 @@
             if (!email || !pass) { errEl.textContent = 'Please fill in all fields.'; return; }
 
             try {
-                const res = await fetch('/api/auth/login', {
+                const res = await fetch('/api/auth/admin-login', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, password: pass })
                 });
                 const data = await res.json();
                 if (!res.ok) { errEl.textContent = data.error || 'Login failed.'; return; }
-
-                if (data.user.role !== 'admin') {
-                    errEl.textContent = '⛔ Access denied. Admin privileges required.';
-                    return;
-                }
 
                 adminToken = data.token;
                 localStorage.setItem('jn_admin_token', data.token);

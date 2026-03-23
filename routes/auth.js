@@ -98,6 +98,49 @@ router.post('/login', async (req, res) => {
     }
 });
 
+// ─── POST /api/auth/admin-login ───────────────────────────────────────────────
+router.post('/admin-login', async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        if (!email || !password) {
+            return res.status(400).json({ error: 'Email and password are required.' });
+        }
+
+        const user = await User.findOne({ email: email.toLowerCase() });
+        if (!user) {
+            return res.status(401).json({ error: 'Invalid credentials. Consult the master admin.' });
+        }
+
+        if (user.role !== 'admin') {
+            return res.status(403).json({ error: 'Access denied. You lack administrator privileges.' });
+        }
+
+        if (!user.isActive) {
+            return res.status(403).json({ error: 'Account deactivated. Contact the master admin.' });
+        }
+
+        const isMatch = await user.comparePassword(password);
+        if (!isMatch) {
+            return res.status(401).json({ error: 'Invalid credentials. Wrong password.' });
+        }
+
+        const token = generateToken(user._id);
+
+        user.lastLogin = new Date();
+        await user.save();
+
+        res.json({
+            message: `Welcome to the command center, ${user.firstName}.`,
+            token,
+            user: user.toSafeObject()
+        });
+    } catch (err) {
+        console.error('Admin login error:', err.message);
+        res.status(500).json({ error: 'Server error. Please try again.' });
+    }
+});
+
 // ─── GET /api/auth/me — get current user profile ─────────────────────────────
 router.get('/me', protect, async (req, res) => {
     try {

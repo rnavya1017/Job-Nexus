@@ -423,6 +423,34 @@
     </div>
 
 
+    <!-- Course Quiz Modal -->
+    <div id="quizModal" class="modal-overlay hidden">
+        <div class="modal-box apply-modal-box" style="max-width: 500px;">
+            <button class="modal-close" onclick="closeQuizModal()"><i class="fa fa-times"></i></button>
+
+            <!-- Header -->
+            <div class="apply-modal-header">
+                <div class="apply-job-logo" id="quizModalLogo">📝</div>
+                <div>
+                    <h2 id="quizModalTitle">Take a Quiz</h2>
+                    <p id="quizModalSubtitle" class="modal-subtitle">Course Name</p>
+                </div>
+            </div>
+
+            <!-- Quiz Panel -->
+            <div class="quiz-panel" style="padding: 1.5rem;">
+                <h3 id="quizQuestionText" style="margin-bottom: 1.2rem; font-size: 1.1rem; line-height: 1.4;"></h3>
+                <div id="quizOptionsContainer" style="display: flex; flex-direction: column; gap: 0.8rem;"></div>
+                
+                <div id="quizFeedback" class="hidden" style="margin-top: 1.5rem; padding: 1rem; border-radius: 8px; font-weight: 700; text-align: center;"></div>
+                
+                <button id="quizNextBtn" class="btn-primary full-width hidden" style="margin-top: 1.5rem;" onclick="nextQuizQuestion()">
+                    Next Question <i class="fa fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- ═══════════════════════════════════════════
      PAGE: ATS SCREENING
 ═══════════════════════════════════════════ -->
@@ -769,13 +797,13 @@
 
             <!-- Authors -->
             <div class="footer-authors">
-                <span class="footer-made">Made with <span style="color:#ef4444">❤️</span> by</span>
+                <span class="footer-made">Made <span style="color:#ef4444"></span> by</span>
                 <div class="author-chips">
                     <div class="author-chip">
                         <div class="author-avatar">L</div>
                         <div class="author-info">
-                            <span class="author-name">Venkata Lokesh Derangula</span>
-                            <span class="author-role">Frontend and Backend</span>
+                            <span class="author-name">Derangula Venkata Lokesh</span>
+                            <span class="author-role">Website Design and Deployment</span>
                         </div>
                     </div>
                     <span class="author-sep">&amp;</span>

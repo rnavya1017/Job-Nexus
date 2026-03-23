@@ -724,42 +724,16 @@ app.get('/api/courses', (req, res) => {
 });
 
 function getCoursesData() {
-    return {
-        'Web Development': [
-            { title: 'HTML & CSS Full Course', channel: 'Traversy Media', url: 'https://www.youtube.com/@TraversyMedia', icon: '🌐', desc: 'Modern HTML5, CSS3, Flexbox & Grid' },
-            { title: 'JavaScript Mastery', channel: 'Fireship', url: 'https://www.youtube.com/@Fireship', icon: '⚡', desc: 'JS, React, Next.js in record time' },
-            { title: 'Full Stack Development', channel: 'CodeWithHarry', url: 'https://www.youtube.com/@CodeWithHarry', icon: '💻', desc: 'Hindi full stack web dev tutorials' },
-            { title: 'React JS Complete Course', channel: 'Academind', url: 'https://www.youtube.com/@academind', icon: '⚛️', desc: 'React hooks, Redux, React Router' },
-        ],
-        'Java & Spring Boot': [
-            { title: 'Java Full Course', channel: 'Telusko', url: 'https://www.youtube.com/@Telusko', icon: '☕', desc: 'Java fundamentals to advanced OOP' },
-            { title: 'Spring Boot Tutorial', channel: 'Amigoscode', url: 'https://www.youtube.com/@amigoscode', icon: '🍃', desc: 'Spring Boot, JPA, Security, REST APIs' },
-            { title: 'Java Spring Boot Projects', channel: 'Daily Code Buffer', url: 'https://www.youtube.com/@DailyCodeBuffer', icon: '🔧', desc: 'Real-world Spring Boot projects' },
-            { title: 'Microservices with Spring', channel: 'Java Brains', url: 'https://www.youtube.com/@JavaBrains', icon: '🏗️', desc: 'Microservices, Kafka, Docker' },
-        ],
-        'Data Science & AI': [
-            { title: 'Python for Data Science', channel: 'Sentdex', url: 'https://www.youtube.com/@sentdex', icon: '🐍', desc: 'Python, Pandas, Matplotlib, ML' },
-            { title: 'Machine Learning Course', channel: 'StatQuest', url: 'https://www.youtube.com/@statquest', icon: '🤖', desc: 'ML concepts explained simply' },
-            { title: 'Deep Learning Specialization', channel: '3Blue1Brown', url: 'https://www.youtube.com/@3blue1brown', icon: '🧠', desc: 'Neural networks visually explained' },
-            { title: 'Data Science Full Course', channel: 'Ken Jee', url: 'https://www.youtube.com/@KenJee_DS', icon: '📊', desc: 'Data science career and projects' },
-        ],
-        'DevOps & Cloud': [
-            { title: 'Docker & Kubernetes', channel: 'TechWorld with Nana', url: 'https://www.youtube.com/@TechWorldwithNana', icon: '🐳', desc: 'Containers, orchestration, CI/CD' },
-            { title: 'AWS Full Course', channel: 'freeCodeCamp', url: 'https://www.youtube.com/@freecodecamp', icon: '☁️', desc: 'AWS Solutions Architect prep' },
-            { title: 'Linux Command Line', channel: 'NetworkChuck', url: 'https://www.youtube.com/@NetworkChuck', icon: '🐧', desc: 'Linux, networking, cybersecurity' },
-        ],
-        'DSA & Interview Prep': [
-            { title: 'Data Structures & Algorithms', channel: 'Abdul Bari', url: 'https://www.youtube.com/@abdul_bari', icon: '🗂️', desc: 'DSA from scratch with animations' },
-            { title: 'LeetCode Problem Solving', channel: 'NeetCode', url: 'https://www.youtube.com/@NeetCode', icon: '🧩', desc: 'Top 150 interview questions' },
-            { title: 'System Design', channel: 'Gaurav Sen', url: 'https://www.youtube.com/@gauravsensei', icon: '🏛️', desc: 'System design for FAANG interviews' },
-            { title: 'Competitive Programming', channel: 'Errichto', url: 'https://www.youtube.com/@Errichto', icon: '🏆', desc: 'Competitive coding techniques' },
-        ],
-        'Mobile Development': [
-            { title: 'Flutter Complete Course', channel: 'The Net Ninja', url: 'https://www.youtube.com/@NetNinja', icon: '📱', desc: 'Flutter, Dart, iOS & Android' },
-            { title: 'React Native Tutorial', channel: 'Academind', url: 'https://www.youtube.com/@academind', icon: '📲', desc: 'Cross-platform mobile apps' },
-            { title: 'Kotlin Android', channel: 'Philipp Lackner', url: 'https://www.youtube.com/@PhilippLackner', icon: '🤖', desc: 'Kotlin, Jetpack Compose, Android' },
-        ]
-    };
+    try {
+        const fs = require('fs');
+        const path = require('path');
+        const filePath = path.join(__dirname, 'data', 'courses.json');
+        const fileData = fs.readFileSync(filePath, 'utf-8');
+        return JSON.parse(fileData);
+    } catch (error) {
+        console.error('Error reading courses.json:', error);
+        return {};
+    }
 }
 
 // ─── Auth & Admin API Routes ──────────────────────────────────────────────────

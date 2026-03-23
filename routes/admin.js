@@ -113,6 +113,10 @@ router.put('/users/:id', async (req, res) => {
             return res.status(400).json({ error: 'Cannot demote yourself from admin.' });
         }
 
+        if (role === 'admin' && req.user.email !== 'admin@career') {
+            return res.status(403).json({ error: 'Action strictly reserved for the Master Admin (admin@career).' });
+        }
+
         if (role && ['user', 'admin'].includes(role)) user.role = role;
         if (typeof isActive === 'boolean') user.isActive = isActive;
 
@@ -133,6 +137,10 @@ router.delete('/users/:id', async (req, res) => {
 
         const user = await User.findById(req.params.id);
         if (!user) return res.status(404).json({ error: 'User not found.' });
+
+        if (user.email === 'admin@career') {
+            return res.status(403).json({ error: 'The Master Admin account cannot be deleted.' });
+        }
 
         await User.findByIdAndDelete(req.params.id);
         res.json({ message: `User ${user.email} deleted permanently.` });

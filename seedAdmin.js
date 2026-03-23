@@ -3,8 +3,8 @@ const User = require('./models/User');
 
 async function seedAdmin() {
     try {
-        const adminEmail = process.env.ADMIN_EMAIL || 'admin@careerconnect.com';
-        const adminPassword = process.env.ADMIN_PASSWORD || 'Admin@2026';
+        const adminEmail = process.env.ADMIN_EMAIL || 'admin@career';
+        const adminPassword = process.env.ADMIN_PASSWORD || 'Admin@careerconnect.';
 
         const existing = await User.findOne({ email: adminEmail });
         if (existing) {

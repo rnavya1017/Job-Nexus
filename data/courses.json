@@ -1,0 +1,454 @@
+{
+  "Web Development": [
+    {
+      "title": "HTML & CSS Full Course", "channel": "Traversy Media", "url": "https://www.youtube.com/@TraversyMedia", "icon": "🌐", "desc": "Modern HTML5, CSS3, Flexbox & Grid",
+      "quiz": [
+        {"question":"What does HTML stand for?","options":["Hyper Text Markup Language","Hyperlinks and Text Markup Language","Home Tool Markup Language","Hyper Tool Markup Language"],"correctIndex":0},
+        {"question":"Which HTML tag is used to define an internal style sheet?","options":["<script>","<style>","<css>","<head>"],"correctIndex":1},
+        {"question":"Which is the correct CSS syntax?","options":["body {color: black;}","{body:color=black;}","body:color=black;","{body;color:black;}"],"correctIndex":0},
+        {"question":"How do you insert a comment in a CSS file?","options":["<!-- this is a comment -->","// this is a comment","/* this is a comment */","' this is a comment"],"correctIndex":2},
+        {"question":"Which property is used to change the background color?","options":["color","bgcolor","background-color","bg-color"],"correctIndex":2},
+        {"question":"Which CSS property controls the text size?","options":["text-size","font-style","text-style","font-size"],"correctIndex":3},
+        {"question":"What is the correct HTML element for the largest heading?","options":["<heading>","<h1>","<h6>","<head>"],"correctIndex":1},
+        {"question":"What does CSS stand for?","options":["Creative Style Sheets","Computer Style Sheets","Cascading Style Sheets","Colorful Style Sheets"],"correctIndex":2},
+        {"question":"What is the correct HTML element for inserting a line break?","options":["<br>","<lb>","<break>","<newline>"],"correctIndex":0},
+        {"question":"Which character is used to indicate an end tag?","options":["<","^","*","/"],"correctIndex":3},
+        {"question":"How can you make a numbered list?","options":["<list>","<ol>","<ul>","<dl>"],"correctIndex":1},
+        {"question":"How do you make each word in a text start with a capital letter?","options":["text-transform: capitalize","text-style: capital","transform: capitalize","text-transform: uppercase"],"correctIndex":0},
+        {"question":"Which HTML attribute specifies an alternate text for an image?","options":["title","src","alt","longdesc"],"correctIndex":2},
+        {"question":"Which property is used to change the left margin of an element?","options":["padding-left","margin-left","indent","left-margin"],"correctIndex":1},
+        {"question":"How do you select an element with id 'demo'?","options":[".demo","*demo","#demo","demo"],"correctIndex":2}
+      ]
+    },
+    {
+      "title": "JavaScript Mastery", "channel": "Fireship", "url": "https://www.youtube.com/@Fireship", "icon": "⚡", "desc": "JS, React, Next.js in record time",
+      "quiz": [
+        {"question":"Inside which HTML element do we put the JavaScript?","options":["<js>","<javascript>","<script>","<scripting>"],"correctIndex":2},
+        {"question":"Where is the correct place to insert a JavaScript?","options":["The <head> section","The <body> section","Both <head> and <body>","The <footer> section"],"correctIndex":2},
+        {"question":"How do you write 'Hello World' in an alert box?","options":["msgBox('Hello World');","alertBox('Hello World');","msg('Hello World');","alert('Hello World');"],"correctIndex":3},
+        {"question":"How do you create a function in JavaScript?","options":["function:myFunction()","function = myFunction()","function myFunction()","create myFunction()"],"correctIndex":2},
+        {"question":"How do you call a function named 'myFunction'?","options":["call function myFunction()","myFunction()","call myFunction()","execute myFunction()"],"correctIndex":1},
+        {"question":"How to write an IF statement in JavaScript?","options":["if i = 5 then","if i == 5 then","if (i == 5)","if i = 5"],"correctIndex":2},
+        {"question":"How does a FOR loop start?","options":["for (i = 0; i <= 5)","for (i = 0; i <= 5; i++)","for i = 1 to 5","for (i <= 5; i++)"],"correctIndex":1},
+        {"question":"Which keyword is used to declare a block-scoped variable?","options":["var","let","def","local"],"correctIndex":1},
+        {"question":"How do you strictly compare two values in JS?","options":["==","=","===","!="],"correctIndex":2},
+        {"question":"How can you add a comment in a JavaScript?","options":["<!--This is a comment-->","//This is a comment","'This is a comment","**This is a comment**"],"correctIndex":1},
+        {"question":"What is the correct way to write a JavaScript array?","options":["var colors = (1:'red', 2:'green')","var colors = ['red', 'green']","var colors = 1 = ('red'), 2 = ('green')","var colors = 'red', 'green'"],"correctIndex":1},
+        {"question":"How do you round the number 7.25, to the nearest integer?","options":["Math.rnd(7.25)","Math.round(7.25)","round(7.25)","rnd(7.25)"],"correctIndex":1},
+        {"question":"How do you find the number with the highest value of x and y?","options":["Math.max(x, y)","ceil(x, y)","top(x, y)","Math.ceil(x, y)"],"correctIndex":0},
+        {"question":"Which event occurs when the user clicks on an HTML element?","options":["onmouseclick","onchange","onclick","onmouseover"],"correctIndex":2},
+        {"question":"How do you declare a JavaScript variable?","options":["variable carName;","var carName;","v carName;","String carName;"],"correctIndex":1}
+      ]
+    },
+    {
+      "title": "Full Stack Development", "channel": "CodeWithHarry", "url": "https://www.youtube.com/@CodeWithHarry", "icon": "💻", "desc": "Hindi full stack web dev tutorials",
+      "quiz": [
+        {"question":"What does MERN stand for?","options":["Mongo, Express, React, Node","MySQL, Engine, Ruby, Node","Mongo, Ember, React, Next","Micro, Express, Rust, Nginx"],"correctIndex":0},
+        {"question":"Node.js is written in which language?","options":["Java","C++","JavaScript","Python"],"correctIndex":2},
+        {"question":"Express JS is a framework of...","options":["React","Node.js","Angular","Vue"],"correctIndex":1},
+        {"question":"Which database is primarily used in MERN stack?","options":["MySQL","PostgreSQL","MongoDB","Oracle"],"correctIndex":2},
+        {"question":"What command is used to initialize a new Node.js project?","options":["npm start","npm init","node index","npm create"],"correctIndex":1},
+        {"question":"Which of the following is NOT an HTTP method?","options":["GET","POST","FETCH","DELETE"],"correctIndex":2},
+        {"question":"What does REST stand for?","options":["Representational State Transfer","Resource State Transmission","Remote Server Transmission","Real-time State Transfer"],"correctIndex":0},
+        {"question":"Which HTTP status code signifies a successful response?","options":["404","500","301","200"],"correctIndex":3},
+        {"question":"What is JSON used for?","options":["Styling web pages","Storing and transporting data","Creating complex algorithms","Database indexing"],"correctIndex":1},
+        {"question":"In MongoDB, data is stored as...","options":["Tables","Documents","Rows","Strings"],"correctIndex":1},
+        {"question":"Which package is commonly used to connect Node.js to MongoDB?","options":["mongoose","mongo-connect","mysql2","sequelize"],"correctIndex":0},
+        {"question":"Which of the following is a backend language?","options":["HTML","CSS","Node.js","React"],"correctIndex":2},
+        {"question":"What does API stand for?","options":["Application Programming Interface","Application Protocol Interface","Applied Programming Interface","Automated Program Interface"],"correctIndex":0},
+        {"question":"Which tool tests API endpoints?","options":["Postman","Docker","Git","Webpack"],"correctIndex":0},
+        {"question":"What separates the client and server in web architecture?","options":["Database","Network","Operating System","The Internet"],"correctIndex":3}
+      ]
+    },
+    {
+      "title": "React JS Complete Course", "channel": "Academind", "url": "https://www.youtube.com/@academind", "icon": "⚛️", "desc": "React hooks, Redux, React Router",
+      "quiz": [
+        {"question":"What hook is used to manage state in React?","options":["useEffect","useState","useRef","useContext"],"correctIndex":1},
+        {"question":"What is used to pass data to components from outside?","options":["props","states","RenderData","arguments"],"correctIndex":0},
+        {"question":"Which method is called right after a component is rendered in class components?","options":["componentWillMount","componentDidUpdate","componentDidMount","componentWillUnmount"],"correctIndex":2},
+        {"question":"What does JSX stand for?","options":["JavaScript XML","Java Syntax Extension","JSON XML","JavaScript X"],"correctIndex":0},
+        {"question":"How can you embed a JavaScript expression in JSX?","options":["( expression )","[ expression ]","{ expression }","< expression >"],"correctIndex":2},
+        {"question":"What is the virtual DOM?","options":["A real DOM subset","A lightweight copy of the real DOM","A tool for rendering HTML","A new JavaScript feature"],"correctIndex":1},
+        {"question":"Which of these is NOT a React Hook?","options":["useMemo","useView","useReducer","useLayoutEffect"],"correctIndex":1},
+        {"question":"True or False: React component names must start with a capital letter.","options":["True","False","Only in class components","Only in functional components"],"correctIndex":0},
+        {"question":"What is Redux commonly used for?","options":["Database management","Styling","Global state management","Routing"],"correctIndex":2},
+        {"question":"Which hook runs side effects in a functional component?","options":["useSideEffect","useEffect","useAction","useEvent"],"correctIndex":1},
+        {"question":"How do you handle routing in React applications?","options":["React Router","Express Router","HTML links","Node.js"],"correctIndex":0},
+        {"question":"What property is used uniquely identify list items?","options":["id","index","key","name"],"correctIndex":2},
+        {"question":"Which command creates a new React app?","options":["npx create-react-app","npm make-react-app","node start react","npm react-init"],"correctIndex":0},
+        {"question":"Can multiple components share the same state without lifting state up?","options":["Yes, via Context API","Yes, inherently","No, impossible","Yes, via props alone"],"correctIndex":0},
+        {"question":"What is a React component?","options":["A CSS file","A reusable piece of UI","A database model","A server endpoint"],"correctIndex":1}
+      ]
+    }
+  ],
+  "Java & Spring Boot": [
+    {
+      "title": "Java Full Course", "channel": "Telusko", "url": "https://www.youtube.com/@Telusko", "icon": "☕", "desc": "Java fundamentals to advanced OOP",
+      "quiz": [
+        {"question":"Which concept of OOP allows hiding internal state?","options":["Inheritance","Polymorphism","Encapsulation","Abstraction"],"correctIndex":2},
+        {"question":"What is the size of an int variable in Java?","options":["8 bits","16 bits","32 bits","64 bits"],"correctIndex":2},
+        {"question":"Which keyword is used to inherit a class in Java?","options":["implements","extends","inherits","super"],"correctIndex":1},
+        {"question":"What is the output of 5 / 2 in Java?","options":["2.5","2","2.0","Error"],"correctIndex":1},
+        {"question":"Which statement is used to stop a loop?","options":["stop","return","exit","break"],"correctIndex":3},
+        {"question":"Which method is the entry point of a Java program?","options":["start()","main()","run()","init()"],"correctIndex":1},
+        {"question":"What does JVM stand for?","options":["Java Variable Machine","Java Virtual Machine","Java Visual Machine","Just Virtual Machine"],"correctIndex":1},
+        {"question":"Which collection stores unique elements?","options":["List","Array","Set","Map"],"correctIndex":2},
+        {"question":"What is a checked exception?","options":["An exception checked at compile-time","An exception checked at runtime","An error in logic","A JVM error"],"correctIndex":0},
+        {"question":"Which interface does a HashMap implement?","options":["List","Set","Map","Collection"],"correctIndex":2},
+        {"question":"What is the default value of a boolean variable?","options":["true","false","null","0"],"correctIndex":1},
+        {"question":"Can a Java class inherit from multiple classes?","options":["Yes","No","Only abstract classes","Only final classes"],"correctIndex":1},
+        {"question":"What keyword creates an object?","options":["new","create","make","obj"],"correctIndex":0},
+        {"question":"What differentiates an interface from an abstract class?","options":["Can have instance variables","Can have abstract methods","Can be instantiated","All methods are public abstract by default"],"correctIndex":3},
+        {"question":"What is method overloading?","options":["Same method name, different parameters","Same method name, same parameters in child class","Overriding a static method","Having too many methods"],"correctIndex":0}
+      ]
+    },
+    {
+      "title": "Spring Boot Tutorial", "channel": "Amigoscode", "url": "https://www.youtube.com/@amigoscode", "icon": "🍃", "desc": "Spring Boot, JPA, Security, REST APIs",
+      "quiz": [
+        {"question":"Which annotation is used to mark a class as a Spring Boot application?","options":["@SpringBoot","@SpringBootApplication","@EnableAutoConfiguration","@Application"],"correctIndex":1},
+        {"question":"What is the default port for Spring Boot apps?","options":["8080","3000","80","443"],"correctIndex":0},
+        {"question":"What does IoC stand for?","options":["Inversion of Control","Insertion of Code","Internal Object Call","Integration of Components"],"correctIndex":0},
+        {"question":"Which annotation defines a REST Controller?","options":["@Controller","@RestController","@Api","@RequestMapping"],"correctIndex":1},
+        {"question":"How do you inject a dependency in Spring?","options":["@Inject","@Autowired","@Required","@Dependency"],"correctIndex":1},
+        {"question":"Which file is used to configure application properties?","options":["config.xml","application.properties","spring.json","setup.yml"],"correctIndex":1},
+        {"question":"What is Spring Data JPA used for?","options":["Security","Database interaction","Rendering views","Networking"],"correctIndex":1},
+        {"question":"Which annotation maps HTTP POST requests?","options":["@GetMapping","@PostMapping","@Mapping","@RequestMapping(POST)"],"correctIndex":1},
+        {"question":"What does the 'application-dev.properties' file signify?","options":["Production config","Development profile config","Test config","Default config"],"correctIndex":1},
+        {"question":"Which layer generally contains business logic?","options":["Controller","Repository","Service","View"],"correctIndex":2},
+        {"question":"What does @PathVariable do?","options":["Reads URL parameters","Extracts values from the URI path","Reads headers","Binds request body"],"correctIndex":1},
+        {"question":"Which tool initializes a new Spring Boot project easily?","options":["Maven","Gradle","Spring Initializr","NPM"],"correctIndex":2},
+        {"question":"Can a Spring Boot application run without an external Tomcat server?","options":["No","Yes, it has embedded Tomcat","Only with Jetty","Only on Linux"],"correctIndex":1},
+        {"question":"What is Actuator used for?","options":["Securing endpoints","Monitoring and managing the app","Database migration","Creating logs"],"correctIndex":1},
+        {"question":"Which annotation saves an entity in the database repository?","options":["@Save","@Persist","There is no class annotation, inherited save() method is used","@Insert"],"correctIndex":2}
+      ]
+    },
+    {
+      "title": "Java Spring Boot Projects", "channel": "Daily Code Buffer", "url": "https://www.youtube.com/@DailyCodeBuffer", "icon": "🔧", "desc": "Real-world Spring Boot projects",
+      "quiz": [
+        {"question":"Which dependency is commonly used for database interaction in Spring?","options":["Spring Data JPA","Spring Web","Hibernate Core","JDBC Native"],"correctIndex":0},
+        {"question":"What is the main advantage of Spring Boot?","options":["It is a new language","It provides auto-configuration","It requires no RAM","It runs without Java"],"correctIndex":1},
+        {"question":"What does @Entity signify?","options":["A controller class","A database table mapping class","A service class","A configuration class"],"correctIndex":1},
+        {"question":"How do you handle exceptions globally in Spring Boot?","options":["Try-catch everywhere","@ControllerAdvice","@ExceptionHandler globally","Throws Exception"],"correctIndex":1},
+        {"question":"Which HTTP method is idempotent?","options":["POST","PATCH","PUT","CONNECT"],"correctIndex":2},
+        {"question":"What tool can be used to document REST APIs in Spring?","options":["Swagger / OpenAPI","Javadoc","Postman","Markdown"],"correctIndex":0},
+        {"question":"How do you secure a Spring Boot REST API?","options":["Spring Data","Spring Security","Spring Boot Actuator","Spring Session"],"correctIndex":1},
+        {"question":"Which HTTP status code is returned for 'Bad Request'?","options":["200","400","404","500"],"correctIndex":1},
+        {"question":"What is the purpose of DTOs (Data Transfer Objects)?","options":["To map to DB directly","To transfer data between layers securely","To define configurations","To start the server"],"correctIndex":1},
+        {"question":"Which annotation injects a value from application.properties?","options":["@Value","@Inject","@Autowired","@Property"],"correctIndex":0},
+        {"question":"What does @Transactional do?","options":["Starts a new thread","Manages database transactions automatically","Logs method execution time","Caches results"],"correctIndex":1},
+        {"question":"How can you schedule tasks in Spring Boot?","options":["@Scheduled","@Timer","@Task","@Cron"],"correctIndex":0},
+        {"question":"Which database is an in-memory database often used for testing in Spring?","options":["MySQL","H2","PostgreSQL","Oracle"],"correctIndex":1},
+        {"question":"What does @CrossOrigin do?","options":["Connects multiple databases","Allows requests from different origins (CORS)","Secures endpoints across networks","Balances load"],"correctIndex":1},
+        {"question":"Which interface provides pagination and sorting capabilities?","options":["CrudRepository","PagingAndSortingRepository","JpaRepository","Both B and C"],"correctIndex":3}
+      ]
+    },
+    {
+      "title": "Microservices with Spring", "channel": "Java Brains", "url": "https://www.youtube.com/@JavaBrains", "icon": "🏗️", "desc": "Microservices, Kafka, Docker",
+      "quiz": [
+        {"question":"What is a common architectural pattern used in microservices to locate instances?","options":["Service Discovery","Service Mesh","API Gateway","Monolith"],"correctIndex":0},
+        {"question":"Which tool is often used alongside Spring for service registry?","options":["Eureka","Kafka","Redis","RabbitMQ"],"correctIndex":0},
+        {"question":"What acts as a single entry point for all clients in a microservices architecture?","options":["Eureka Server","API Gateway","Config Server","Database"],"correctIndex":1},
+        {"question":"What does Spring Cloud Config provide?","options":["Service discovery","Centralized external configuration","Load balancing","Circuit breaking"],"correctIndex":1},
+        {"question":"Which framework provides circuit breaker capabilities?","options":["Eureka","Zuul","Resilience4j / Hystrix","Ribbon"],"correctIndex":2},
+        {"question":"Why is asynchronous communication often preferred in microservices?","options":["It's faster to code","It avoids blocking operations and decoupled services","It uses HTTP","It is more secure"],"correctIndex":1},
+        {"question":"What is Kafka used for?","options":["Database caching","Event streaming and message brokering","API Routing","Service Discovery"],"correctIndex":1},
+        {"question":"What does 'containerizing' a microservice mean?","options":["Packaging it in a ZIP file","Packaging it with Docker for isolation","Uploading it to AWS","Compiling to a single binary"],"correctIndex":1},
+        {"question":"What is the purpose of distributed tracing?","options":["To track requests as they flow across multiple services","To find IP addresses","To trace network cables","To compile code remotely"],"correctIndex":0},
+        {"question":"Which tool is a standard for distributed tracing?","options":["Docker","Zipkin / Sleuth","Eureka","Spring Boot Admin"],"correctIndex":1},
+        {"question":"What does a circuit breaker do when a downstream service fails repeatedly?","options":["Retries infinitely","Throws an exception instantly (Open state) to prevent cascading failures","Shuts down the server","Alerts the police"],"correctIndex":1},
+        {"question":"Which HTTP client is commonly used to call other microservices in Spring?","options":["RestTemplate / WebClient / FeignClient","HttpClient","Axios","Fetch"],"correctIndex":0},
+        {"question":"What does Feign provide?","options":["A declarative REST client","A database engine","A service registry","A message broker"],"correctIndex":0},
+        {"question":"What does 'Saga Pattern' handle?","options":["API routing","Distributed transactions","Container orchestration","Logging"],"correctIndex":1},
+        {"question":"Which technology orchestrates Docker containers?","options":["Jenkins","Git","Kubernetes","Maven"],"correctIndex":2}
+      ]
+    }
+  ],
+  "Data Science & AI": [
+    {
+      "title": "Python for Data Science", "channel": "Sentdex", "url": "https://www.youtube.com/@sentdex", "icon": "🐍", "desc": "Python, Pandas, Matplotlib, ML",
+      "quiz": [
+        {"question":"Which library is primarily used for data manipulation in Python?","options":["NumPy","TensorFlow","Pandas","Flask"],"correctIndex":2},
+        {"question":"What is Matplotlib used for?","options":["Data Visualization","Web Scraping","Machine Learning","API Creation"],"correctIndex":0},
+        {"question":"In Pandas, what is a 1-dimensional array-like object?","options":["DataFrame","Series","Matrix","Tensor"],"correctIndex":1},
+        {"question":"Which NumPy method returns the shape of an array?","options":["arr.size()","arr.dim","arr.shape","arr.length"],"correctIndex":2},
+        {"question":"What function reads a CSV file into a Pandas DataFrame?","options":["pd.read_csv()","pd.open_csv()","pd.load_csv()","pd.get_csv()"],"correctIndex":0},
+        {"question":"Which method shows the first 5 rows of a DataFrame?","options":["df.top()","df.head()","df.first()","df.show()"],"correctIndex":1},
+        {"question":"What is Scikit-Learn (sklearn) used for?","options":["Data cleaning","Web development","Machine Learning algorithms","Creating UI"],"correctIndex":2},
+        {"question":"How do you handle missing values in Pandas?","options":["df.fix()","df.fillna() or df.dropna()","df.remove()","df.delete()"],"correctIndex":1},
+        {"question":"What does exploratory data analysis (EDA) involve?","options":["Deploying models","Summarizing main characteristics of data","Writing APIs","Creating servers"],"correctIndex":1},
+        {"question":"Which library offers advanced statistical visualizations?","options":["BeautifulSoup","Seaborn","Django","Requests"],"correctIndex":1},
+        {"question":"What is the standard alias for importing NumPy?","options":["import numpy as nm","import numpy as np","import numpy as npy","import numpy as ny"],"correctIndex":1},
+        {"question":"In Matplotlib, how do you show the plot window?","options":["plt.display()","plt.draw()","plt.view()","plt.show()"],"correctIndex":3},
+        {"question":"How to find correlation between numerical columns in a DataFrame?","options":["df.corr()","df.relation()","df.match()","df.link()"],"correctIndex":0},
+        {"question":"What does `fit()` do in an sklearn model?","options":["Tests the model","Trains the model on data","Saves the model","Loads the model"],"correctIndex":1},
+        {"question":"Which Jupyter Notebook shortcut executes the current cell?","options":["Ctrl + S","Shift + Enter","Alt + X","Ctrl + Alt + Del"],"correctIndex":1}
+      ]
+    },
+    {
+      "title": "Machine Learning Course", "channel": "StatQuest", "url": "https://www.youtube.com/@statquest", "icon": "🤖", "desc": "ML concepts explained simply",
+      "quiz": [
+        {"question":"What is overfitting?","options":["Model performs well on training data but poorly on unseen data","Model predicts everything as 0","Model performs poorly on both training and test data","Model trains too fast"],"correctIndex":0},
+        {"question":"Supervised learning involves learning from:","options":["Unlabeled data","Labeled data","Environments","Random noise"],"correctIndex":1},
+        {"question":"What is cross-validation used for?","options":["Cleaning data","Evaluating model performance and preventing overfitting","Speeding up training","Deploying models"],"correctIndex":1},
+        {"question":"Which algorithm is used for Classification?","options":["Linear Regression","K-Means","Logistic Regression","PCA"],"correctIndex":2},
+        {"question":"What is a decision tree?","options":["A graph of nodes and edges for shortest path","A tree-like model of decisions and their possible consequences","A data structure to store text","An ensemble method"],"correctIndex":1},
+        {"question":"What does Random Forest do?","options":["Builds one large tree","Combines multiple decision trees for better accuracy","Clusters data points","Reduces dimensions"],"correctIndex":1},
+        {"question":"What is the goal of K-Means clustering?","options":["Predict continuous values","Partition data into K distinct clusters","Classify images","Find eigenvectors"],"correctIndex":1},
+        {"question":"What is an example of Unsupervised Learning?","options":["Predicting house prices","Clustering customers based on behavior","Detecting spam emails","Playing chess"],"correctIndex":1},
+        {"question":"What does the ROC curve evaluate?","options":["Regression error","Classification model performance","Training time","Data cleanliness"],"correctIndex":1},
+        {"question":"What is a Hyperparameter?","options":["A parameter learned during training","A configuration parameter set BEFORE training","The output of a model","A statistical outlier"],"correctIndex":1},
+        {"question":"What does PCA (Principal Component Analysis) do?","options":["Maximizes dimension","Reduces dimensionality while preserving variance","Increases learning rate","Cleans missing values"],"correctIndex":1},
+        {"question":"What is Bias in ML?","options":["Error due to overly complex models","Error from erroneous assumptions in the learning algorithm","A regularizer","A learning rate"],"correctIndex":1},
+        {"question":"High variance usually leads to...","options":["Underfitting","Overfitting","Perfect accuracy","Slower inference"],"correctIndex":1},
+        {"question":"Which metric is used for Regression problems?","options":["Accuracy","F1-Score","Mean Squared Error (MSE)","Recall"],"correctIndex":2},
+        {"question":"What does Gradient Descent optimize?","options":["Memory usage","The cost/loss function by taking steps toward the minimum","Testing data split","Network speed"],"correctIndex":1}
+      ]
+    },
+    {
+      "title": "Deep Learning Specialization", "channel": "3Blue1Brown", "url": "https://www.youtube.com/@3blue1brown", "icon": "🧠", "desc": "Neural networks visually explained",
+      "quiz": [
+        {"question":"What algorithm is used to backpropagate errors in neural networks?","options":["Decision Trees","Backpropagation","K-Means","A* Search"],"correctIndex":1},
+        {"question":"What does CNN stand for?","options":["Central Neural Network","Computer Node Network","Convolutional Neural Network","Causal Neutral Network"],"correctIndex":2},
+        {"question":"Which type of network is best suited for sequential data like text or time series?","options":["CNN","RNN (Recurrent Neural Network)","GAN","MLP"],"correctIndex":1},
+        {"question":"What is an activation function?","options":["It defines the output of a node given an input or set of inputs","It turns on the computer","It increases the learning rate","It downloads data"],"correctIndex":0},
+        {"question":"What is ReLU?","options":["A type of dataset","An optimizer","An activation function (Rectified Linear Unit)","A loss function"],"correctIndex":2},
+        {"question":"Why do we use mini-batch gradient descent?","options":["To save disk space","To make training deterministic","To balance processing speed and convergence stability","To overfit the model"],"correctIndex":2},
+        {"question":"What is a tensor?","options":["A scalar value","A 1D array","A multidimensional array/matrix generalizations","A special type of GPU"],"correctIndex":2},
+        {"question":"What is Dropout in deep learning?","options":["Dropping out of school","A regularization technique where random neurons are ignored during training","Removing the last layer","Lowering the learning rate"],"correctIndex":1},
+        {"question":"What does a Softmax layer do?","options":["Makes weights smaller","Outputs a probability distribution over classes","Increases training speed","Removes negative values"],"correctIndex":1},
+        {"question":"What is an Epoch?","options":["One forward pass of one batch","One complete pass through the entire training dataset","One update of weights","A type of activation function"],"correctIndex":1},
+        {"question":"Which framework is built by Google for deep learning?","options":["PyTorch","Keras","TensorFlow","Scikit-learn"],"correctIndex":2},
+        {"question":"What does a Generative Adversarial Network (GAN) consist of?","options":["Two generators","A generator and a discriminator","A convolutional and a recurrent layer","Two discriminators"],"correctIndex":1},
+        {"question":"What is the vanishing gradient problem?","options":["Gradients becoming too large","Gradients becoming extremely small, preventing early layers from training","Hardware failing to compute gradients","Loss function increasing"],"correctIndex":1},
+        {"question":"What helps mitigate the vanishing gradient problem?","options":["Sigmoid activation","ReLU activation and batch normalization","Using deeper networks","Lower learning rate"],"correctIndex":1},
+        {"question":"What does NLP stand for?","options":["Network Linear Process","Natural Language Processing","Node Loss Probability","New Linear Programming"],"correctIndex":1}
+      ]
+    },
+    {
+      "title": "Data Science Full Course", "channel": "Ken Jee", "url": "https://www.youtube.com/@KenJee_DS", "icon": "📊", "desc": "Data science career and projects",
+      "quiz": [
+        {"question":"Which comes first in a typical DS workflow?","options":["Model Deployment","Data Cleaning","Hyperparameter Tuning","A/B Testing"],"correctIndex":1},
+        {"question":"What does EDA stand for?","options":["Exploratory Data Analysis","Execution Data Algorithm","Error Driven Analytics","Efficient Data array"],"correctIndex":0},
+        {"question":"What is Feature Engineering?","options":["Building new software features","Selecting, transforming, and creating new variables from raw data","Hosting the model on cloud","Writing unit tests"],"correctIndex":1},
+        {"question":"Why is documenting your code important in Data Science?","options":["It makes it run faster","It's required by law","For reproducibility and collaborative understanding","To pass tests"],"correctIndex":2},
+        {"question":"Which platform is widely used to showcase data science portfolios?","options":["Instagram","GitHub","Spotify","Snapchat"],"correctIndex":1},
+        {"question":"What is a Kaggle competition?","options":["A coding sprint for web development","A platform hosting machine learning challenges","A video game","A mathematics exam"],"correctIndex":1},
+        {"question":"What does A/B testing measure?","options":["The difference in user behavior between two variants","The speed of a database","The syntax errors in code","The model size"],"correctIndex":0},
+        {"question":"What is the goal of data imputation?","options":["Deleting all missing values","Replacing missing data with substituted values like mean/median","Corrupting the data","Moving data to a new server"],"correctIndex":1},
+        {"question":"Why do we split data into training and test sets?","options":["To save memory","To evaluate how well the model generalizes to unseen data","To train the model twice","To practice splitting"],"correctIndex":1},
+        {"question":"What tool is popular for Big Data processing?","options":["Excel","Apache Spark","Notepad","MS Paint"],"correctIndex":1},
+        {"question":"What is an API often used for in Data Science?","options":["Running hardware tests","Serving model predictions to other applications","Styling websites","Creating algorithms"],"correctIndex":1},
+        {"question":"Which library contains pre-trained NLP models?","options":["Hugging Face Transformers","Matplotlib","Seaborn","Django"],"correctIndex":0},
+        {"question":"What is a dashboard?","options":["A car part","A visual interface showing key performance indicators (KPIs) and data insights","A network router","A database schema"],"correctIndex":1},
+        {"question":"What does SQL stand for?","options":["Stream Query Language","Structured Query Language","Standard Query Line","Simple Queue Layer"],"correctIndex":1},
+        {"question":"Why is domain knowledge important in Data Science?","options":["It isn't","It helps in understanding features and defining the right business problems","It makes you faster at typing","It reduces server costs"],"correctIndex":1}
+      ]
+    }
+  ],
+  "DevOps & Cloud": [
+    {
+      "title": "Docker & Kubernetes", "channel": "TechWorld with Nana", "url": "https://www.youtube.com/@TechWorldwithNana", "icon": "🐳", "desc": "Containers, orchestration, CI/CD",
+      "quiz": [
+        {"question":"What is a Dockerfile used for?","options":["To run containers","To build Docker images","To orchestrate clusters","To monitor logs"],"correctIndex":1},
+        {"question":"In Kubernetes, what is the smallest deployable unit?","options":["Node","Cluster","Pod","Service"],"correctIndex":2},
+        {"question":"What does an image become when executed in Docker?","options":["A Pod","A Container","A Virtual Machine","A process"],"correctIndex":1},
+        {"question":"What is Docker Compose used for?","options":["Creating UI layouts","Defining and running multi-container Docker applications","Pushing to GitHub","Writing tests"],"correctIndex":1},
+        {"question":"What command lists all running Docker containers?","options":["docker list","docker ps","docker run","docker images"],"correctIndex":1},
+        {"question":"Which Kubernetes component runs on every node to supervise containers?","options":["Kube-proxy","Kubelet","Etcd","API Server"],"correctIndex":1},
+        {"question":"What is the purpose of a Kubernetes Deployment?","options":["To provide networking","To declare the desired state for Pods and ReplicaSets","To store secrets","To act as a database"],"correctIndex":1},
+        {"question":"What exposes a Kubernetes application outside the cluster?","options":["ConfigMap","Pod","Service (NodePort/LoadBalancer)","Secret"],"correctIndex":2},
+        {"question":"What does CI/CD stand for?","options":["Continuous Integration / Continuous Deployment","Code Inspection / Code Delivery","Centralized Infrastructure / Cloud Deployment","Computer Isolation / Container Daemon"],"correctIndex":0},
+        {"question":"Which tool is a CI/CD orchestrator?","options":["Jenkins / GitLab CI","Docker","Kubernetes","Terraform"],"correctIndex":0},
+        {"question":"In Docker, what is a Volume used for?","options":["To make the container louder","To persist data generated by and used by Docker containers","To increase CPU usage","To connect networks"],"correctIndex":1},
+        {"question":"What does `kubectl get pods` do?","options":["Deletes pods","Creates pods","Lists all pods in the current namespace","Updates pods"],"correctIndex":2},
+        {"question":"What defines configuration settings separated from the application image in k8s?","options":["Secrets","ConfigMaps","Deployments","Services"],"correctIndex":1},
+        {"question":"What port does a container use to expose web traffic typically?","options":["22","80/443","21","3306"],"correctIndex":1},
+        {"question":"What is Helm in the Kubernetes ecosystem?","options":["A container engine","A package manager separating configuration from charts","A monitoring tool","A network plugin"],"correctIndex":1}
+      ]
+    },
+    {
+      "title": "AWS Full Course", "channel": "freeCodeCamp", "url": "https://www.youtube.com/@freecodecamp", "icon": "☁️", "desc": "AWS Solutions Architect prep",
+      "quiz": [
+        {"question":"What AWS service is used for scalable object storage?","options":["EC2","S3","RDS","Lambda"],"correctIndex":1},
+        {"question":"What does EC2 stand for?","options":["Elastic Compute Cloud","Efficient Cloud Computing","Enterprise Computer Center","Electric Code Container"],"correctIndex":0},
+        {"question":"Which AWS service provides a managed relational database?","options":["DynamoDB","ElastiCache","RDS","Redshift"],"correctIndex":2},
+        {"question":"What service allows you to run code without provisioning servers?","options":["AWS Lambda","AWS EC2","AWS S3","AWS VPC"],"correctIndex":0},
+        {"question":"What does VPC stand for?","options":["Virtual Private Cloud","Virtual Public Computer","Visual Protected Cloud","Very Private Cloud"],"correctIndex":0},
+        {"question":"Which AWS service is used for DNS management?","options":["CloudFront","Route 53","API Gateway","IAM"],"correctIndex":1},
+        {"question":"What is IAM used for in AWS?","options":["Identity and Access Management","Internet Access Module","Internal Analytics Monitoring","Instance Allocation Memory"],"correctIndex":0},
+        {"question":"What acts as a Content Delivery Network (CDN) in AWS?","options":["CloudWatch","CloudTrail","CloudFront","CloudFormation"],"correctIndex":2},
+        {"question":"Which service tracks user activity and API usage on AWS?","options":["CloudFront","CloudWatch","CloudTrail","SNS"],"correctIndex":2},
+        {"question":"What is Auto Scaling used for?","options":["Automatically purchasing more servers","Automatically adjusting compute capacity to meet demand","Automatically encrypting data","Automatically deploying code"],"correctIndex":1},
+        {"question":"What is DynamoDB?","options":["A relational database","A NoSQL key-value and document database","A data warehouse","An in-memory cache"],"correctIndex":1},
+        {"question":"What is Terraform mostly used for with AWS?","options":["Monitoring","Infrastructure as Code (IaC)","Database management","CI/CD"],"correctIndex":1},
+        {"question":"Which AWS service sends email or text notifications?","options":["SQS","SNS","SES","STS"],"correctIndex":1},
+        {"question":"What is an EC2 Security Group?","options":["A physical lock","A virtual firewall for EC2 instances","An IAM policy","An encryption key"],"correctIndex":1},
+        {"question":"In S3, what are files called?","options":["Documents","Rows","Objects","Blobs"],"correctIndex":2}
+      ]
+    },
+    {
+      "title": "Linux Command Line", "channel": "NetworkChuck", "url": "https://www.youtube.com/@NetworkChuck", "icon": "🐧", "desc": "Linux, networking, cybersecurity",
+      "quiz": [
+        {"question":"Which command lists files in a directory?","options":["cd","pwd","ls","mkdir"],"correctIndex":2},
+        {"question":"What command gives you root terminal privileges?","options":["su","grep","touch","sudo"],"correctIndex":3},
+        {"question":"How do you change the current directory?","options":["md","cd","rd","dir"],"correctIndex":1},
+        {"question":"Which command displays the present working directory?","options":["ls","cd","pwd","showdir"],"correctIndex":2},
+        {"question":"What does `mkdir` do?","options":["Makes a file","Makes a directory","Moves a directory","Removes a directory"],"correctIndex":1},
+        {"question":"Which command searches for a string pattern in a file?","options":["find","less","cat","grep"],"correctIndex":3},
+        {"question":"How do you remove a file named 'test.txt'?","options":["rm test.txt","del test.txt","remove test.txt","delete test.txt"],"correctIndex":0},
+        {"question":"What command moves or renames a file?","options":["mv","cp","ren","move"],"correctIndex":0},
+        {"question":"What does the `chmod` command do?","options":["Changes file owner","Changes file permissions","Checks processes","Changes directory mode"],"correctIndex":1},
+        {"question":"How do you copy a file named 'file1' to 'file2'?","options":["copy file1 file2","cp file1 file2","mv file1 file2","duplicate file1 file2"],"correctIndex":1},
+        {"question":"What command outputs the resource usage and running processes dynamically?","options":["ps","htop / top","free","df"],"correctIndex":1},
+        {"question":"Which command reads the content of a file and prints it to the terminal?","options":["cat","read","echo","print"],"correctIndex":0},
+        {"question":"What does `df -h` show?","options":["Disk free space in human-readable format","Directory files","Download files","Deleted files history"],"correctIndex":0},
+        {"question":"How do you view the end of a log file dynamically?","options":["cat log","less log","tail -f log","head log"],"correctIndex":2},
+        {"question":"What directory contains system configuration files in Linux?","options":["/home","/bin","/var","/etc"],"correctIndex":3}
+      ]
+    }
+  ],
+  "DSA & Interview Prep": [
+    {
+      "title": "Data Structures & Algorithms", "channel": "Abdul Bari", "url": "https://www.youtube.com/@abdul_bari", "icon": "🗂️", "desc": "DSA from scratch with animations",
+      "quiz": [
+        {"question":"What is the time complexity of binary search?","options":["O(1)","O(N)","O(log N)","O(N^2)"],"correctIndex":2},
+        {"question":"Which data structure uses LIFO (Last In First Out)?","options":["Queue","Stack","Tree","Graph"],"correctIndex":1},
+        {"question":"Which algorithm is used to sort a list in O(N log N) time consistently?","options":["Bubble Sort","Insertion Sort","Merge Sort","Selection Sort"],"correctIndex":2},
+        {"question":"What is a linked list?","options":["An array of links","A linear collection of data elements where each points to the next","A graph with cycles","A tree with one branch"],"correctIndex":1},
+        {"question":"Which data structure uses FIFO (First In First Out)?","options":["Stack","Queue","Heap","Array"],"correctIndex":1},
+        {"question":"What is the worst-case time complexity of Quick Sort?","options":["O(N)","O(N log N)","O(N^2)","O(log N)"],"correctIndex":2},
+        {"question":"In a Binary Search Tree (BST), the left child is always...","options":["Greater than the parent","Less than the parent","Equal to the parent","Null"],"correctIndex":1},
+        {"question":"What data structure is optimal for implementing a priority queue?","options":["Array","Linked List","Heap","Stack"],"correctIndex":2},
+        {"question":"What algorithm finds the shortest path in a graph with non-negative edge weights?","options":["DFS","Dijkstra's Algorithm","Prim's Algorithm","Kruskal's Algorithm"],"correctIndex":1},
+        {"question":"What does Big-O notation describe?","options":["The exact execution time","The upper bound of algorithmic complexity","The memory usage perfectly","The lower bound of complexity"],"correctIndex":1},
+        {"question":"Which tree traversal visits Root, Left, Right?","options":["Inorder","Postorder","Preorder","Level-order"],"correctIndex":2},
+        {"question":"What is a Hash Table used for?","options":["Sorting values","Fast key-value lookups","Graph traversal","Tree balancing"],"correctIndex":1},
+        {"question":"What resolves hash collisions by chaining elements in a list?","options":["Linear Probing","Quadratic Probing","Separate Chaining","Double Hashing"],"correctIndex":2},
+        {"question":"A graph without any cycles is called a...","options":["Tree (if connected)","Bipartite graph","Directed graph","Dense graph"],"correctIndex":0},
+        {"question":"What is dynamic programming?","options":["Writing code dynamically","Solving complex problems by breaking them into overlapping subproblems and memoizing results","A new language feature","Randomly trying solutions"],"correctIndex":1}
+      ]
+    },
+    {
+      "title": "LeetCode Problem Solving", "channel": "NeetCode", "url": "https://www.youtube.com/@NeetCode", "icon": "🧩", "desc": "Top 150 interview questions",
+      "quiz": [
+        {"question":"Which algorithmic technique involves two pointers moving towards each other?","options":["Sliding Window","Two Pointers","Binary Search","DFS"],"correctIndex":1},
+        {"question":"What technique is ideal for finding a subarray of fixed size that meets a condition?","options":["Two Pointers","Sliding Window","Greedy","Backtracking"],"correctIndex":1},
+        {"question":"How do you detect a cycle in a linked list?","options":["Hash Map","Fast and Slow Pointers (Tortoise and Hare)","Sorting","Binary Search"],"correctIndex":1},
+        {"question":"Which algorithm explores as far as possible along each branch before backtracking?","options":["BFS","Binary Search","DFS","Dijkstra"],"correctIndex":2},
+        {"question":"Which algorithm explores level by level?","options":["DFS","BFS","A*","Prim's"],"correctIndex":1},
+        {"question":"What data structure is used to implement BFS?","options":["Stack","Queue","Heap","Array"],"correctIndex":1},
+        {"question":"What data structure is often used to implement DFS recursively?","options":["Queue","Heap","Call Stack","Tree"],"correctIndex":2},
+        {"question":"What does the 'Two Sum' problem usually require for an O(N) solution?","options":["Sorting","Hash Map","Two loops","Math"],"correctIndex":1},
+        {"question":"Which technique is used to generate all permutations of a string?","options":["Dynamic Programming","Greedy","Backtracking","Sliding Window"],"correctIndex":2},
+        {"question":"What is a Trie commonly used for?","options":["Number sorting","Prefix matching and autocomplete","Graph shortest path","Balancing trees"],"correctIndex":1},
+        {"question":"In a 2D matrix, finding the shortest path to a destination typically involves...","options":["DFS","BFS","Dynamic Programming","Sorting"],"correctIndex":1},
+        {"question":"What is Kadane's algorithm used for?","options":["Sorting algorithms","Maximum Subarray Sum","Longest Common Subsequence","Shortest Path"],"correctIndex":1},
+        {"question":"Which algorithm efficiently finds the minimum spanning tree?","options":["Dijkstra's","Kruskal's or Prim's","Floyd-Warshall","Bellman-Ford"],"correctIndex":1},
+        {"question":"What handles range queries efficiently over an array?","options":["Stack","Segment Tree","Hash Map","Queue"],"correctIndex":1},
+        {"question":"How many times is a node visited in post-order traversal?","options":["Once","Twice","Three times","Zero"],"correctIndex":0}
+      ]
+    },
+    {
+      "title": "System Design", "channel": "Gaurav Sen", "url": "https://www.youtube.com/@gauravsensei", "icon": "🏛️", "desc": "System design for FAANG interviews",
+      "quiz": [
+        {"question":"What does a load balancer do?","options":["Stores data","Distributes incoming traffic","Encrypts user passwords","Checks for syntax errors"],"correctIndex":1},
+        {"question":"What is the CAP theorem?","options":["Consistency, Availability, Partition Tolerance","Compute, Analytics, Processing","Cache, API, Proxy","Centralized, Asynchronous, Parallel"],"correctIndex":0},
+        {"question":"What is horizontal scaling?","options":["Adding more RAM/CPU to a single server","Adding more servers to handle the load","Changing database types","Using smaller algorithms"],"correctIndex":1},
+        {"question":"What is vertical scaling?","options":["Adding more servers","Upgrading hardware of an existing server","Improving network speed","Load balancing"],"correctIndex":1},
+        {"question":"What is a CDN (Content Delivery Network)?","options":["A database","A group of geographically distributed servers caching static content","A message queue","An encryption tool"],"correctIndex":1},
+        {"question":"What is caching used for?","options":["Persisting permanent data","Storing frequently accessed data in memory for faster retrieval","Encrypting data","Routing requests"],"correctIndex":1},
+        {"question":"What does consistent hashing help with?","options":["Cryptography","Minimizing key reassignment when a server is added or removed","Generating random numbers","Sorting arrays"],"correctIndex":1},
+        {"question":"What is database sharding?","options":["Backing up a database","Splitting a database horizontally into smaller parts","Indexing a database","Changing the schema"],"correctIndex":1},
+        {"question":"Why use a Message Queue (like RabbitMQ or Kafka)?","options":["To execute everything synchronously","To decouple services and handle asynchronous processing","To store large images","To balance load at the DNS level"],"correctIndex":1},
+        {"question":"What is eventual consistency?","options":["Data is immediately consistent everywhere","Data will become consistent across all nodes given enough time","Data is never consistent","A type of SQL constraint"],"correctIndex":1},
+        {"question":"Which protocol guarantees reliable delivery?","options":["UDP","TCP","IP","ICMP"],"correctIndex":1},
+        {"question":"Which database type is best suited for complex joins and transactions?","options":["NoSQL Key-Value","Relational (SQL)","Document Store","Graph Database"],"correctIndex":1},
+        {"question":"What is latency?","options":["The amount of data transferred per second","The time it takes for data to travel from source to destination","The storage capacity of a disk","The processing power of the CPU"],"correctIndex":1},
+        {"question":"What is an API Gateway?","options":["A router at home","A single entry point that routes client requests to microservices","A database firewall","A CDN for APIs"],"correctIndex":1},
+        {"question":"In a master-slave DB replication, typically...","options":["Writes go to master, reads go to slaves","Every node acts as master","Slaves only exist for backups","Master is read-only"],"correctIndex":0}
+      ]
+    },
+    {
+      "title": "Competitive Programming", "channel": "Errichto", "url": "https://www.youtube.com/@Errichto", "icon": "🏆", "desc": "Competitive coding techniques",
+      "quiz": [
+        {"question":"What is dynamically storing results of subproblems to avoid redundant computation called?","options":["Backtracking","Memoization / DP","Hashing","Sorting"],"correctIndex":1},
+        {"question":"Which data structure is ideal for disjoint set operations?","options":["Union Find / DSU","Segment Tree","Trie","Fenwick Tree"],"correctIndex":0},
+        {"question":"What is the time complexity of a standard Fenwick Tree (Binary Indexed Tree) point update?","options":["O(1)","O(log N)","O(N)","O(N log N)"],"correctIndex":1},
+        {"question":"Which bitwise operator checks if a number is odd or even?","options":["| (OR)","^ (XOR)","& (AND)","~ (NOT)"],"correctIndex":2},
+        {"question":"In C++, what macro is commonly used to speed up I/O?","options":["ios_base::sync_with_stdio(false);","cin.fast();","fast_io;","#pragma fast"],"correctIndex":0},
+        {"question":"What does modulo 10^9+7 accomplish?","options":["Makes algorithm faster","Prevents integer overflow on large numbers","Sorts the array","Compresses strings"],"correctIndex":1},
+        {"question":"What does XORing a number with itself result in?","options":["The number itself","1","0","-1"],"correctIndex":2},
+        {"question":"Which algorithm finds the Lowest Common Ancestor (LCA) in O(log N)?","options":["Binary Lifting","DFS","Dijkstra","Kruskal"],"correctIndex":0},
+        {"question":"What algorithm computes all primes efficiently up to N?","options":["Binary Search","Sieve of Eratosthenes","Euclidean Algorithm","Rabin-Karp"],"correctIndex":1},
+        {"question":"Which tree structure handles range minimum queries and range updates efficiently?","options":["Binary Search Tree","Segment Tree with Lazy Propagation","Trie","Heap"],"correctIndex":1},
+        {"question":"What is the maximum integer limit for a standard 32-bit signed int?","options":["~2.14 Billion (2^31 - 1)","10^18","10^6","65535"],"correctIndex":0},
+        {"question":"What does a topological sort require?","options":["A directed acyclic graph (DAG)","An undirected graph","A complete graph","A bipartite graph"],"correctIndex":0},
+        {"question":"What algorithm matches string patterns in O(N+M) time?","options":["Bubble Sort","KMP or Rabin-Karp","Dijkstra","Floyd-Warshall"],"correctIndex":1},
+        {"question":"What problem requires choosing non-overlapping intervals to maximize activities?","options":["Fractional Knapsack","Activity Selection (Greedy)","0/1 Knapsack","TSP"],"correctIndex":1},
+        {"question":"What is the inclusion-exclusion principle used for?","options":["Sorting strings","Combinatorics and counting","Graph connectivity","Pathfinding"],"correctIndex":1}
+      ]
+    }
+  ],
+  "Mobile Development": [
+    {
+      "title": "Flutter Complete Course", "channel": "The Net Ninja", "url": "https://www.youtube.com/@NetNinja", "icon": "📱", "desc": "Flutter, Dart, iOS & Android",
+      "quiz": [
+        {"question":"Which programming language does Flutter use?","options":["Java","Swift","Dart","Kotlin"],"correctIndex":2},
+        {"question":"Everything in Flutter is a...","options":["Activity","Widget","Module","Component"],"correctIndex":1},
+        {"question":"What is the command to create a new Flutter project?","options":["flutter new","flutter build","flutter create","flutter init"],"correctIndex":2},
+        {"question":"Which widget acts as the root of material design applications?","options":["Scaffold","Container","MaterialApp","Column"],"correctIndex":2},
+        {"question":"Which widget provides a default app bar, floating action button, and body?","options":["Scaffold","Container","MaterialApp","SafeArea"],"correctIndex":0},
+        {"question":"What are the two types of widgets in Flutter?","options":["Stateless and Stateful","Active and Passive","Static and Dynamic","Main and Sub"],"correctIndex":0},
+        {"question":"Which method is mandatory to override in a StatelessWidget?","options":["init()","build()","create()","render()"],"correctIndex":1},
+        {"question":"How do you trigger a UI rebuild in a StatefulWidget?","options":["updateState()","refresh()","setState()","rebuild()"],"correctIndex":2},
+        {"question":"What is 'pubspec.yaml' used for?","options":["Defining UI layouts","Managing dependencies and assets","Configuring the server","Writing tests"],"correctIndex":1},
+        {"question":"Which widget arranges children vertically?","options":["Row","Stack","Column","ListView"],"correctIndex":2},
+        {"question":"Which widget allows children to be layered on top of each other?","options":["Container","Row","Stack","Wrap"],"correctIndex":2},
+        {"question":"How do you run a Flutter app on an emulator?","options":["flutter execute","flutter start","flutter run","flutter deploy"],"correctIndex":2},
+        {"question":"What is used to handle gestures like taps in Flutter?","options":["ClickListener","GestureDetector","TapWidget","Button"],"correctIndex":1},
+        {"question":"Which widget is used to render a list of scrollable items efficiently?","options":["Column","Wrap","ListView.builder","Stack"],"correctIndex":2},
+        {"question":"Which feature enables instant code updates on the emulator without rebooting the app?","options":["Hot Reload","Cold Boot","Live Update","Fast Compile"],"correctIndex":0}
+      ]
+    },
+    {
+      "title": "React Native Tutorial", "channel": "Academind", "url": "https://www.youtube.com/@academind", "icon": "📲", "desc": "Cross-platform mobile apps",
+      "quiz": [
+        {"question":"React Native translates JS components into...","options":["HTML elements","Native device components","Canvas drawings","WebAssembly"],"correctIndex":1},
+        {"question":"Which component is used for scrolling lists in React Native?","options":["<ScrollView>","<ListView>","<List>","<Scrollable>"],"correctIndex":0},
+        {"question":"How do you create a container equivalent to a <div> in React Native?","options":["<Div>","<Box>","<Section>","<View>"],"correctIndex":3},
+        {"question":"Which component renders text?","options":["<Text>","<Label>","<Span>","<Paragraph>"],"correctIndex":0},
+        {"question":"What is used to style components in React Native?","options":["CSS files","StyledComponents","StyleSheet.create()","SCSS files"],"correctIndex":2},
+        {"question":"Does React Native use the browser DOM?","options":["Yes","No","Only on iOS","Only on Android"],"correctIndex":1},
+        {"question":"Which build tool simplifies creating React Native apps without native setup initially?","options":["Expo","Webpack","Babel","Cordova"],"correctIndex":0},
+        {"question":"What is Flexbox used for in React Native?","options":["Animating elements","Styling text","Layout and alignment","Fetching data"],"correctIndex":2},
+        {"question":"What is the default flexDirection in React Native?","options":["row","column","row-reverse","column-reverse"],"correctIndex":1},
+        {"question":"Which component handles button presses effectively with feedback?","options":["<Pressable> / <TouchableOpacity>","<ButtonBox>","<ClickArea>","<Action>"],"correctIndex":0},
+        {"question":"How are images loaded from local files?","options":["<Image source={'path'} />","<Image src={'path'} />","<Image source={require('path')} />","<Image href={'path'} />"],"correctIndex":2},
+        {"question":"Which library handles screen navigation commonly?","options":["React Router Next","React Navigation","Express Router","Native Router"],"correctIndex":1},
+        {"question":"What hook fetches hardware dimensions like screen width?","options":["useScreen","useWindowDimensions","useDisplay","useSize"],"correctIndex":1},
+        {"question":"Which platform does React Native support?","options":["iOS only","Android only","Both iOS and Android","Only Windows Phone"],"correctIndex":2},
+        {"question":"How do you handle keyboard hiding inputs?","options":["<KeyboardAvoidingView>","<InputView>","<SafeAreaView>","It behaves automatically"],"correctIndex":0}
+      ]
+    },
+    {
+      "title": "Kotlin Android", "channel": "Philipp Lackner", "url": "https://www.youtube.com/@PhilippLackner", "icon": "🤖", "desc": "Kotlin, Jetpack Compose, Android",
+      "quiz": [
+        {"question":"Which keyword handles null safety seamlessly in Kotlin?","options":["!","?","*","&"],"correctIndex":1},
+        {"question":"What is Jetpack Compose used for?","options":["Backend logic","Building Native UI declaratively","Database schema","Analytics"],"correctIndex":1},
+        {"question":"How do you declare a variable that cannot be reassigned in Kotlin?","options":["var","let","final","val"],"correctIndex":3},
+        {"question":"What replaces XML layouts in modern Android development?","options":["Java","HTML","Jetpack Compose","SwiftUI"],"correctIndex":2},
+        {"question":"Which function acts as a UI component in Jetpack Compose?","options":["@Composable function","@View function","@UI function","@Render function"],"correctIndex":0},
+        {"question":"How do you define a mutable state in Jetpack Compose?","options":["var state = State()","var state by remember { mutableStateOf(value) }","let state = value","React.useState(value)"],"correctIndex":1},
+        {"question":"What layout arranges elements horizontally in Compose?","options":["Column","Row","Box","Grid"],"correctIndex":1},
+        {"question":"What layout stacks elements on top of each other in Compose?","options":["Column","Row","Box","Layer"],"correctIndex":2},
+        {"question":"Which concept prevents the main thread from blocking in Kotlin?","options":["Promises","Coroutines","Threads","Callbacks"],"correctIndex":1},
+        {"question":"What modifier is used to change the size or padding of a Composable?","options":["Modifier","Layout","Style","Design"],"correctIndex":0},
+        {"question":"Which tool handles dependency injection commonly in modern Android?","options":["Dagger / Hilt","Koin","Retrofit","Room"],"correctIndex":0},
+        {"question":"What library is used for SQLite database access in Android?","options":["Retrofit","Glide","Room","Coroutines"],"correctIndex":2},
+        {"question":"What library makes network requests in Android typically?","options":["Room","Retrofit","Picasso","Jetpack"],"correctIndex":1},
+        {"question":"What component manages UI-related data in a lifecycle-conscious way?","options":["Activity","Fragment","ViewModel","BroadcastReceiver"],"correctIndex":2},
+        {"question":"In a Kotlin class, how do you specify it inherits from another class?","options":["class MyClass extends BaseClass","class MyClass : BaseClass()","class MyClass inherits BaseClass","class MyClass implements BaseClass"],"correctIndex":1}
+      ]
+    }
+  ]
+}

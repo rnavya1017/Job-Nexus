@@ -23,14 +23,14 @@ const API = '';  // same origin
 //   INIT
 // ═══════════════════════════════════════════
 document.addEventListener('DOMContentLoaded', () => {
-    initPreloader();
-    initParticles();
-    initCounters();
-    initNavbar();
-    initGlowingEffect();
-    loadUser();
-    loadCourses();
-    handleHashNav();
+    try { initPreloader(); } catch (e) { console.error("initPreloader err", e); }
+    try { initParticles(); } catch (e) { console.error("initParticles err", e); }
+    try { initCounters(); } catch (e) { console.error("initCounters err", e); }
+    try { initNavbar(); } catch (e) { console.error("initNavbar err", e); }
+    try { initGlowingEffect(); } catch (e) { console.error("initGlowingEffect err", e); }
+    try { loadUser(); } catch (e) { console.error("loadUser err", e); }
+    try { loadCourses(); } catch (e) { console.error("loadCourses err", e); }
+    try { handleHashNav(); } catch (e) { console.error("handleHashNav err", e); }
     window.addEventListener('hashchange', handleHashNav);
 });
 
@@ -879,14 +879,106 @@ function renderCoursesForDomain(domain) {
     const courses = state.coursesData?.[domain] || [];
     const grid = document.getElementById('coursesGrid');
     if (!grid) return;
-    grid.innerHTML = courses.map(c => `
-    <a class="course-card" href="${c.url}" target="_blank" rel="noopener">
-      <span class="course-icon">${c.icon}</span>
-      <div class="course-title">${escHtml(c.title)}</div>
-      <div class="course-channel"><i class="fab fa-youtube" style="color:#ff0000"></i> ${escHtml(c.channel)}</div>
-      <p class="course-desc">${escHtml(c.desc)}</p>
-      <span class="course-cta">Watch on YouTube <i class="fa fa-external-link-alt"></i></span>
-    </a>`).join('');
+    grid.innerHTML = courses.map((c, idx) => `
+    <div class="course-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+      <a href="${c.url}" target="_blank" rel="noopener" style="text-decoration:none; color:inherit; display:block; flex-grow: 1;">
+        <span class="course-icon">${c.icon}</span>
+        <div class="course-title">${escHtml(c.title)}</div>
+        <div class="course-channel"><i class="fab fa-youtube" style="color:#ff0000"></i> ${escHtml(c.channel)}</div>
+        <p class="course-desc">${escHtml(c.desc)}</p>
+        <span class="course-cta" style="display:block; margin-bottom: 1rem;">Watch on YouTube <i class="fa fa-external-link-alt"></i></span>
+      </a>
+      ${c.quiz ? `<button class="btn-primary small" style="width: 100%; border-radius: 6px; padding: 0.6rem; z-index: 2;" onclick="openQuizModal('${escHtml(domain)}', ${idx}); event.stopPropagation();">Take a Quiz <i class="fa fa-pencil-alt"></i></button>` : ''}
+    </div>`).join('');
+}
+
+// ═══════════════════════════════════════════
+//   QUIZ LOGIC
+// ═══════════════════════════════════════════
+let currentQuiz = null;
+let currentQuestionIndex = 0;
+
+function openQuizModal(domain, courseIndex) {
+    const course = state.coursesData[domain][courseIndex];
+    if (!course || !course.quiz) return;
+    
+    currentQuiz = course;
+    currentQuestionIndex = 0;
+    
+    document.getElementById('quizModalSubtitle').textContent = course.title;
+    renderQuizQuestion();
+    
+    document.getElementById('quizModal').classList.remove('hidden');
+}
+
+function closeQuizModal() {
+    document.getElementById('quizModal').classList.add('hidden');
+    currentQuiz = null;
+}
+
+function renderQuizQuestion() {
+    if (!currentQuiz || currentQuestionIndex >= currentQuiz.quiz.length) {
+        // Quiz completed
+        document.getElementById('quizQuestionText').textContent = "🎉 Quiz Completed!";
+        document.getElementById('quizOptionsContainer').innerHTML = "<p style='color: var(--text2);'>Great job! You answered all questions correctly in this course.</p>";
+        document.getElementById('quizFeedback').classList.add('hidden');
+        document.getElementById('quizNextBtn').classList.add('hidden');
+        return;
+    }
+    
+    const q = currentQuiz.quiz[currentQuestionIndex];
+    document.getElementById('quizQuestionText').textContent = `Q${currentQuestionIndex + 1}: ${q.question}`;
+    
+    const optionsContainer = document.getElementById('quizOptionsContainer');
+    optionsContainer.innerHTML = '';
+    optionsContainer.classList.remove('answered-correctly');
+    
+    q.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-option';
+        btn.textContent = opt;
+        btn.onclick = () => checkQuizAnswer(idx, btn);
+        optionsContainer.appendChild(btn);
+    });
+    
+    document.getElementById('quizFeedback').classList.add('hidden');
+    document.getElementById('quizNextBtn').classList.add('hidden');
+}
+
+function checkQuizAnswer(selectedIndex, btnElement) {
+    const q = currentQuiz.quiz[currentQuestionIndex];
+    const feedback = document.getElementById('quizFeedback');
+    const optionsContainer = document.getElementById('quizOptionsContainer');
+    const nextBtn = document.getElementById('quizNextBtn');
+    
+    if (optionsContainer.classList.contains('answered-correctly')) return;
+    
+    if (selectedIndex === q.correctIndex) {
+        btnElement.classList.add('correct');
+        feedback.textContent = "✅ Correct!";
+        feedback.className = "quiz-feedback correct";
+        feedback.classList.remove('hidden');
+        nextBtn.classList.remove('hidden');
+        optionsContainer.classList.add('answered-correctly');
+        
+        Array.from(optionsContainer.children).forEach(child => {
+            if (child !== btnElement) child.style.opacity = '0.5';
+            child.style.pointerEvents = 'none';
+        });
+    } else {
+        btnElement.classList.add('incorrect');
+        feedback.textContent = "❌ Incorrect, try again!";
+        feedback.className = "quiz-feedback incorrect";
+        feedback.classList.remove('hidden');
+        
+        btnElement.style.animation = 'shake 0.4s';
+        setTimeout(() => btnElement.style.animation = '', 400);
+    }
+}
+
+function nextQuizQuestion() {
+    currentQuestionIndex++;
+    renderQuizQuestion();
 }
 
 // ═══════════════════════════════════════════
